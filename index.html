@@ -172,19 +172,23 @@
       display: flex; flex-direction: column; gap: 16px;
     }
     .hero-card {
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22);
       border-radius: 16px; padding: 20px 24px;
       display: flex; align-items: center; gap: 16px;
       backdrop-filter: blur(8px);
+      transition: border-color .2s, background .2s;
+    }
+    .hero-card:hover {
+      background: rgba(255,255,255,.15); border-color: rgba(245,196,0,.45);
     }
     .hero-card-icon {
       width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(245,196,0,.15);
+      background: rgba(245,196,0,.22); color: #F5C400;
       display: flex; align-items: center; justify-content: center;
       font-size: 22px; flex-shrink: 0;
     }
     .hero-card h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
-    .hero-card p { font-size: 13px; color: #8899aa; }
+    .hero-card p { font-size: 13px; color: #c0cad8; }
 
     /* ── CATEGORII ── */
     .section { padding: 80px 24px; }
