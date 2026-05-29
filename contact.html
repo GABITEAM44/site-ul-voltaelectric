@@ -17,41 +17,10 @@
   <meta name="twitter:title" content="Contact Volta Electric — 0724 702 632" />
   <meta name="twitter:description" content="Slatina & București. Ofertă gratuită în aceeași zi." />
   <meta name="twitter:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+    <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --yellow: #F5C400; --yellow-dark: #E8A000;
-      --dark: #1A1A2E; --dark2: #16213E;
-      --white: #FFFFFF; --gray-light: #F4F4F4;
-      --gray-mid: #6B6B6B; --text: #2D2D2D;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
-
-    /* HEADER */
-    header { background: var(--dark); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,.4); }
-    .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px; }
-    .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-decoration: none; }
-    .logo span { color: var(--yellow); }
-    nav { display: flex; gap: 8px; align-items: center; }
-    nav a { color: #ccc; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 6px; transition: all .2s; }
-    nav a:hover, nav a.active { color: var(--yellow); background: rgba(245,196,0,.08); }
-    .btn-header { background: var(--yellow); color: var(--dark) !important; font-weight: 700 !important; border-radius: 8px !important; padding: 9px 20px !important; }
-    .btn-header:hover { background: var(--yellow-dark) !important; }
-
-    /* PAGE HERO */
-    .page-hero { background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%); color: var(--white); padding: 60px 24px; }
-    .page-hero-inner { max-width: 1200px; margin: 0 auto; }
-    .breadcrumb { font-size: 13px; color: #8899aa; margin-bottom: 16px; }
-    .breadcrumb a { color: #8899aa; text-decoration: none; }
-    .breadcrumb a:hover { color: var(--yellow); }
-    .breadcrumb span { margin: 0 8px; }
-    .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 5vw, 54px); font-weight: 800; margin-bottom: 12px; }
-    .page-hero h1 em { color: var(--yellow); font-style: normal; }
-    .page-hero p { font-size: 16px; color: #b0b8cc; max-width: 560px; }
-
-    /* CONTACT LAYOUT */
+/* CONTACT LAYOUT */
     .contact-layout {
       max-width: 1200px; margin: 0 auto; padding: 60px 24px;
       display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start;
@@ -173,14 +142,7 @@
     .success-msg h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
     .success-msg p { color: var(--gray-mid); }
 
-    /* FOOTER */
-    footer { background: var(--dark); color: #8899aa; padding: 40px 24px 24px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.1); }
-    .footer-bottom { max-width: 1200px; margin: 20px auto 0; font-size: 13px; text-align: center; }
-
-    .whatsapp-btn { position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,.5); text-decoration: none; transition: transform .2s; }
-    .whatsapp-btn:hover { transform: scale(1.12); }
-
     /* TAB LOCATII */
     .loc-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
     .loc-tab {
@@ -210,8 +172,6 @@
       nav a:not(.btn-header) { display: none; }
       .form-card { padding: 24px; }
     }
-  
-    .footer-bottom, .footer-bottom a, .footer-bottom span { font-family: "Inter", sans-serif !important; }
   </style>
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">

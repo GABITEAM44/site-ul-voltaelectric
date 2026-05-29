@@ -1,0 +1,100 @@
+/* ============================================================
+   style.css — Volta Electric SRL
+   CSS comun partajat de toate paginile site-ului
+   ============================================================ */
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── VARIABILE ── */
+:root {
+  --yellow: #F5C400;
+  --yellow-dark: #E8A000;
+  --dark: #1A1A2E;
+  --dark2: #16213E;
+  --white: #FFFFFF;
+  --gray-light: #F4F4F4;
+  --gray-mid: #6B6B6B;
+  --text: #2D2D2D;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
+
+/* ── HEADER ── */
+header { background: var(--dark); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,.4); }
+.header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px; }
+.logo { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-decoration: none; }
+.logo span { color: var(--yellow); }
+nav { display: flex; gap: 8px; align-items: center; }
+nav a { color: #ccc; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 6px; transition: all .2s; letter-spacing: .3px; }
+nav a:hover, nav a.active { color: var(--yellow); background: rgba(245,196,0,.08); }
+.btn-header { background: var(--yellow); color: var(--dark) !important; font-weight: 700 !important; border-radius: 8px !important; padding: 9px 20px !important; }
+.btn-header:hover { background: var(--yellow-dark) !important; }
+
+/* ── PAGE HERO (interior pages) ── */
+.page-hero { background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%); color: var(--white); padding: 60px 24px; }
+.page-hero-inner { max-width: 860px; margin: 0 auto; }
+.page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-bottom: 12px; }
+.page-hero h1 em { color: var(--yellow); font-style: normal; }
+.page-hero p { font-size: 16px; color: #b0b8cc; max-width: 600px; line-height: 1.7; }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { font-size: 13px; color: #8899aa; margin-bottom: 16px; }
+.breadcrumb a { color: #8899aa; text-decoration: none; }
+.breadcrumb a:hover { color: var(--yellow); }
+.breadcrumb span { margin: 0 8px; }
+
+/* ── BADGE ── */
+.update-badge { display: inline-block; background: rgba(245,196,0,.15); border: 1px solid rgba(245,196,0,.3); color: var(--yellow); font-size: 13px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+
+/* ── BUTOANE COMUNE ── */
+.btn-yellow { background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 15px; padding: 13px 28px; border-radius: 10px; text-decoration: none; transition: all .2s; border: 2px solid var(--yellow); display: inline-block; }
+.btn-yellow:hover { background: var(--yellow-dark); border-color: var(--yellow-dark); transform: translateY(-2px); }
+
+/* ── INFO BOX & WARN BOX ── */
+.info-box { background: #FFFBEA; border-left: 4px solid var(--yellow); border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 24px 0; }
+.info-box p { margin: 0; font-size: 15px; }
+.warn-box { background: #FFF3E0; border-left: 4px solid #FF8F00; border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 24px 0; }
+.warn-box p { margin: 0; font-size: 15px; }
+
+/* ── WHATSAPP FLOAT ── */
+.whatsapp-btn {
+  position: fixed; bottom: 24px; right: 24px; z-index: 800;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #25D366; color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.5); }
+.whatsapp-btn .ico { width: 26px; height: 26px; color: var(--white); }
+
+/* ── FOOTER ── */
+footer { background: #0d0d1f; color: #8899aa; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
+.footer-brand .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+.footer-brand .logo span { color: #F5C400; }
+.footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; color: #667788; max-width: 240px; }
+.footer-social { display: flex; gap: 10px; margin-top: 16px; }
+.footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,.06); border-radius: 8px; font-size: 18px; text-decoration: none; transition: background .2s; }
+.footer-social a:hover { background: rgba(245,196,0,.15); }
+.footer-col h5 { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5C400; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13px; color: #667788; text-decoration: none; padding: 4px 0; transition: color .2s; }
+.footer-col a:hover { color: #F5C400; }
+.footer-contact { font-size: 13px; color: #667788; padding: 3px 0; line-height: 1.6; }
+.footer-contact a { color: #667788; text-decoration: none; }
+.footer-contact a:hover { color: #F5C400; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #445566; font-family: 'Inter', sans-serif; }
+.footer-bottom a { color: #667788; text-decoration: none; }
+.footer-bottom a:hover { color: #F5C400; }
+
+/* ── FOOTER RESPONSIVE ── */
+@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .footer-inner { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+/* ── MOBILE NAV override ── */
+@media (max-width: 768px) {
+  nav a:not(.btn-header) { display: none; }
+}

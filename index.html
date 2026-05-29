@@ -60,56 +60,10 @@
   }
   </script>
 
+    <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --yellow: #F5C400;
-      --yellow-dark: #E8A000;
-      --dark: #1A1A2E;
-      --dark2: #16213E;
-      --white: #FFFFFF;
-      --gray-light: #F4F4F4;
-      --gray-mid: #6B6B6B;
-      --text: #2D2D2D;
-    }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
-
-    /* ── HEADER ── */
-    header {
-      background: var(--dark);
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 16px rgba(0,0,0,.4);
-    }
-    .header-top {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px;
-    }
-    .logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 28px; font-weight: 800; letter-spacing: 1px;
-      color: var(--white); text-decoration: none;
-    }
-    .logo span { color: var(--yellow); }
-    nav { display: flex; gap: 8px; align-items: center; }
-    nav a {
-      color: #ccc; text-decoration: none; font-size: 14px; font-weight: 500;
-      padding: 8px 14px; border-radius: 6px; transition: all .2s;
-      letter-spacing: .3px;
-    }
-    nav a:hover { color: var(--yellow); background: rgba(245,196,0,.08); }
-    .btn-header {
-      background: var(--yellow); color: var(--dark) !important;
-      font-weight: 700 !important; border-radius: 8px !important;
-      padding: 9px 20px !important;
-    }
-    .btn-header:hover { background: var(--yellow-dark) !important; }
-
-    /* ── HERO ── */
-    .hero {
+.hero {
       background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #0f3460 100%);
       color: var(--white); padding: 100px 24px 80px;
       position: relative; overflow: hidden;
@@ -314,47 +268,12 @@
     }
     .btn-dark:hover { background: #0f3460; transform: translateY(-2px); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--dark); color: #8899aa;
-      padding: 60px 24px 30px;
-    }
     .footer-inner {
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
       padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1);
     }
-    .footer-brand .logo { font-size: 24px; display: block; margin-bottom: 14px; }
-    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; }
-    .footer-col h5 {
-      font-size: 13px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--white);
-      margin-bottom: 16px;
-    }
-    .footer-col a {
-      display: block; color: #8899aa; text-decoration: none;
-      font-size: 14px; margin-bottom: 10px; transition: color .2s;
-    }
-    .footer-col a:hover { color: var(--yellow); }
-    .footer-contact { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 10px; font-size: 14px; }
-    .footer-bottom {
-      max-width: 1200px; margin: 24px auto 0;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 13px; flex-wrap: wrap; gap: 12px;
-      font-family: "Inter", sans-serif;
-    }
-
-    /* WhatsApp float */
-    .whatsapp-btn {
-      position: fixed; bottom: 28px; right: 28px; z-index: 200;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25D366; color: white;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,.5);
-      text-decoration: none; transition: transform .2s;
-    }
-    .whatsapp-btn:hover { transform: scale(1.12); }
-
+    .footer-brand /* WhatsApp float */
     /* ── DESPRE NOI ── */
     .about { padding: 80px 24px; background: var(--gray-light); }
     .about-inner {
