@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proiecte Realizate — Hale, Birouri, Rezidențial | Volta Electric Slatina</title>
+  <meta name="description" content="200+ proiecte finalizate: hale industriale, centre comerciale, ansambluri rezidențiale și instituții publice. Materiale electrice Volta Electric în toată România." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Volta Electric SRL" />
+  <meta property="og:url" content="https://www.voltaelectric.ro/proiecte" />
+  <meta property="og:title" content="Proiecte Realizate — Volta Electric Slatina" />
+  <meta property="og:description" content="200+ proiecte finalizate în toată România: hale industriale, centre comerciale, ansambluri rezidențiale. 20 de ani de experiență." />
+  <meta property="og:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proiecte Realizate — Volta Electric" />
+  <meta name="twitter:description" content="200+ proiecte în toată România. 20 ani experiență." />
+  <meta name="twitter:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --yellow:#F5C400; --yellow-dark:#E8A000; --dark:#1A1A2E; --dark2:#16213E; --white:#FFFFFF; --gray-light:#F4F4F4; --gray-mid:#6B6B6B; --text:#2D2D2D; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
+
+    header { background: var(--dark); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,.4); }
+    .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px; }
+    .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--yellow); }
+    nav { display: flex; gap: 8px; align-items: center; }
+    nav a { color: #ccc; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 6px; transition: all .2s; }
+    nav a:hover, nav a.active { color: var(--yellow); background: rgba(245,196,0,.08); }
+    .btn-header { background: var(--yellow); color: var(--dark) !important; font-weight: 700 !important; border-radius: 8px !important; padding: 9px 20px !important; }
+    .btn-header:hover { background: var(--yellow-dark) !important; }
+
+    /* HERO */
+    .page-hero { background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%); color: var(--white); padding: 60px 24px; }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: #8899aa; margin-bottom: 16px; }
+    .breadcrumb a { color: #8899aa; text-decoration: none; }
+    .breadcrumb a:hover { color: var(--yellow); }
+    .breadcrumb span { margin: 0 8px; }
+    .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px,5vw,54px); font-weight: 800; margin-bottom: 12px; }
+    .page-hero h1 em { color: var(--yellow); font-style: normal; }
+    .page-hero p { font-size: 16px; color: #b0b8cc; max-width: 600px; margin-bottom: 32px; }
+
+    /* STATS BAR */
+    .stats-bar { display: flex; gap: 48px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 800; color: var(--yellow); line-height: 1; }
+    .stat-label { font-size: 13px; color: #8899aa; margin-top: 4px; }
+
+    /* FILTRE */
+    .filters-bar { max-width: 1200px; margin: 48px auto 0; padding: 0 24px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .filter-btn { padding: 9px 20px; border-radius: 30px; border: 2px solid #E0E0E0; background: var(--white); font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif; color: var(--gray-mid); }
+    .filter-btn:hover { border-color: var(--yellow); color: var(--dark); }
+    .filter-btn.active { background: var(--yellow); border-color: var(--yellow); color: var(--dark); }
+
+    /* GRID PROIECTE */
+    .projects-grid { max-width: 1200px; margin: 32px auto 80px; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; }
+    .project-card { border-radius: 20px; overflow: hidden; border: 1.5px solid #E8E8E8; transition: all .3s; background: var(--white); }
+    .project-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.12); transform: translateY(-5px); border-color: var(--yellow); }
+    .project-img { height: 220px; display: flex; align-items: center; justify-content: center; font-size: 72px; position: relative; }
+    .project-img.industrial { background: linear-gradient(135deg, #1A1A2E, #0f3460); }
+    .project-img.comercial { background: linear-gradient(135deg, #0f3460, #1b4332); }
+    .project-img.rezidential { background: linear-gradient(135deg, #1b4332, #2d6a4f); }
+    .project-img.public { background: linear-gradient(135deg, #4a1942, #7b2d8b); }
+    .project-type-badge { position: absolute; top: 16px; left: 16px; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+    .project-year { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,.5); color: var(--white); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 10px; }
+    .project-body { padding: 24px; }
+    .project-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 6px; line-height: 1.2; }
+    .project-location { font-size: 13px; color: var(--yellow); font-weight: 600; margin-bottom: 10px; }
+    .project-desc { font-size: 14px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 16px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .project-tag { background: var(--gray-light); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 500; color: var(--text); }
+    .project-metrics { display: flex; gap: 20px; padding-top: 16px; border-top: 1px solid #F0F0F0; }
+    .metric { text-align: center; }
+    .metric-val { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--dark); }
+    .metric-label { font-size: 11px; color: var(--gray-mid); }
+
+    /* CTA FINAL */
+    .cta-section { background: var(--yellow); padding: 80px 24px; text-align: center; }
+    .cta-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px,5vw,48px); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+    .cta-section p { font-size: 17px; color: rgba(26,26,46,.7); margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-dark { background: var(--dark); color: var(--white); font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 10px; text-decoration: none; transition: all .2s; }
+    .btn-dark:hover { background: #0f3460; transform: translateY(-2px); }
+    .btn-outline-dark { background: transparent; color: var(--dark); font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 10px; text-decoration: none; border: 2px solid var(--dark); transition: all .2s; }
+    .btn-outline-dark:hover { background: var(--dark); color: var(--white); }
+
+    /* TESTIMONIALE */
+    .testimonials { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
+    .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px,4vw,44px); font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+    .section-sub { font-size: 16px; color: var(--gray-mid); margin-bottom: 48px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .testimonial-card { background: var(--white); border: 1.5px solid #E8E8E8; border-radius: 18px; padding: 28px; transition: all .25s; }
+    .testimonial-card:hover { border-color: var(--yellow); box-shadow: 0 8px 28px rgba(245,196,0,.15); }
+    .stars { color: var(--yellow); font-size: 18px; margin-bottom: 14px; }
+    .testimonial-card p { font-size: 15px; color: #444; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: var(--dark); flex-shrink: 0; font-family: 'Barlow Condensed', sans-serif; }
+    .author-name { font-weight: 700; font-size: 14px; color: var(--dark); }
+    .author-role { font-size: 12px; color: var(--gray-mid); }
+
+    footer { background: var(--dark); color: #8899aa; padding: 40px 24px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .footer-bottom { max-width: 1200px; margin: 20px auto 0; font-size: 13px; text-align: center; }
+    .whatsapp-btn { position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,.5); text-decoration: none; transition: transform .2s; }
+    .whatsapp-btn:hover { transform: scale(1.12); }
+
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      nav a:not(.btn-header) { display: none; }
+      .stats-bar { gap: 24px; }
+    }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
+    <nav>
+      <a href="produse.html">Produse</a>
+      <a href="branduri.html">Branduri</a>
+      <a href="proiecte.html" class="active">Proiecte</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn-header">Solicită ofertă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Acasă</a><span>›</span><strong>Proiecte realizate</strong></div>
+    <h1>Proiecte <em>realizate</em> cu succes</h1>
+    <p>De la instalații rezidențiale la proiecte industriale complexe — 20 de ani de experiență în dotarea cu materiale electrice de calitate.</p>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Proiecte finalizate</div></div>
+      <div class="stat"><div class="stat-num">20</div><div class="stat-label">Ani experiență</div></div>
+      <div class="stat"><div class="stat-num">12</div><div class="stat-label">Județe acoperite</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Clienți mulțumiți</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTRE -->
+<div class="filters-bar">
+  <button class="filter-btn active" onclick="filterProjects('all', this)">Toate</button>
+  <button class="filter-btn" onclick="filterProjects('industrial', this)">Industrial</button>
+  <button class="filter-btn" onclick="filterProjects('comercial', this)">Comercial</button>
+  <button class="filter-btn" onclick="filterProjects('rezidential', this)">Rezidențial</button>
+  <button class="filter-btn" onclick="filterProjects('public', this)">Instituții publice</button>
+</div>
+
+<!-- GRID PROIECTE -->
+<div class="projects-grid" id="projectsGrid">
+
+  <div class="project-card" data-type="industrial">
+    <div class="project-img industrial">🏭<span class="project-type-badge">Industrial</span><span class="project-year">2024</span></div>
+    <div class="project-body">
+      <div class="project-title">Hală producție — instalație electrică completă</div>
+      <div class="project-location">📍 Slatina, Olt</div>
+      <div class="project-desc">Dotarea cu materiale electrice pentru o hală de producție de 3.200 mp: cabluri trifazate, tablouri de distribuție, iluminat industrial LED highbay 150W, automatizări și prize industriale.</div>
+      <div class="project-tags">
+        <span class="project-tag">Cabluri trifazate</span>
+        <span class="project-tag">LED Highbay</span>
+        <span class="project-tag">Tablouri electrice</span>
+        <span class="project-tag">Automatizare</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val">3.200</div><div class="metric-label">mp suprafață</div></div>
+        <div class="metric"><div class="metric-val">48</div><div class="metric-label">corpuri LED</div></div>
+        <div class="metric"><div class="metric-val">60%</div><div class="metric-label">economie energie</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="comercial">
+    <div class="project-img comercial">🏢<span class="project-type-badge">Comercial</span><span class="project-year">2024</span></div>
+    <div class="project-body">
+      <div class="project-title">Centru comercial — iluminat și distribuție</div>
+      <div class="project-location">📍 Pitești, Argeș</div>
+      <div class="project-desc">Furnizarea de materiale pentru iluminatul și instalația electrică a unui centru comercial pe 2 niveluri: panouri LED, sisteme de urgență, tablouri de distribuție și cabluri NYY pentru rețeaua principală.</div>
+      <div class="project-tags">
+        <span class="project-tag">Panouri LED</span>
+        <span class="project-tag">Iluminat urgență</span>
+        <span class="project-tag">Distribuție JT</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val">1.800</div><div class="metric-label">mp</div></div>
+        <div class="metric"><div class="metric-val">120</div><div class="metric-label">corpuri iluminat</div></div>
+        <div class="metric"><div class="metric-val">2</div><div class="metric-label">niveluri</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="rezidential">
+    <div class="project-img rezidential">🏘️<span class="project-type-badge">Rezidențial</span><span class="project-year">2024</span></div>
+    <div class="project-body">
+      <div class="project-title">Ansamblu rezidențial — 40 unități</div>
+      <div class="project-location">📍 București, Sector 4</div>
+      <div class="project-desc">Dotarea cu materiale electrice a unui ansamblu de 40 de apartamente: tablouri individuale, cabluri NYY și CYY, prize și întrerupătoare Legrand, sisteme de iluminat LED pentru spații comune.</div>
+      <div class="project-tags">
+        <span class="project-tag">Tablouri individuale</span>
+        <span class="project-tag">Aparataj Legrand</span>
+        <span class="project-tag">Cabluri NYY</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val">40</div><div class="metric-label">apartamente</div></div>
+        <div class="metric"><div class="metric-val">400+</div><div class="metric-label">prize montate</div></div>
+        <div class="metric"><div class="metric-val">8</div><div class="metric-label">etaje</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="public">
+    <div class="project-img public">🏫<span class="project-type-badge">Instituție publică</span><span class="project-year">2023</span></div>
+    <div class="project-body">
+      <div class="project-title">Școală gimnazială — renovare instalație electrică</div>
+      <div class="project-location">📍 Slatina, Olt</div>
+      <div class="project-desc">Renovarea completă a instalației electrice a unei școli: înlocuire tablou general, cablare completă cu NYY ignifug, înlocuire iluminat fluorescent cu LED, sistem de urgență și semnalizare.</div>
+      <div class="project-tags">
+        <span class="project-tag">Cablu ignifug</span>
+        <span class="project-tag">Iluminat LED</span>
+        <span class="project-tag">Sistem urgență</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val">32</div><div class="metric-label">săli de clasă</div></div>
+        <div class="metric"><div class="metric-val">280</div><div class="metric-label">corpuri LED</div></div>
+        <div class="metric"><div class="metric-val">45%</div><div class="metric-label">economie energie</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="industrial">
+    <div class="project-img industrial">⚡<span class="project-type-badge">Industrial</span><span class="project-year">2023</span></div>
+    <div class="project-body">
+      <div class="project-title">Depozit logistic — instalație completă</div>
+      <div class="project-location">📍 Craiova, Dolj</div>
+      <div class="project-desc">Dotarea unui depozit logistic de 5.000 mp cu materiale electrice: iluminat highbay LED 200W, tablouri de distribuție trifazate, cabluri armate CYABY, prize industriale CEE și sisteme de siguranță.</div>
+      <div class="project-tags">
+        <span class="project-tag">Highbay 200W</span>
+        <span class="project-tag">Cabluri armate</span>
+        <span class="project-tag">Prize industriale</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val">5.000</div><div class="metric-label">mp</div></div>
+        <div class="metric"><div class="metric-val">60</div><div class="metric-label">corpuri LED</div></div>
+        <div class="metric"><div class="metric-val">6</div><div class="metric-label">tablouri</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card" data-type="comercial">
+    <div class="project-img comercial">🏨<span class="project-type-badge">Comercial</span><span class="project-year">2023</span></div>
+    <div class="project-body">
+      <div class="project-title">Hotel 4 stele — upgrade iluminat & automatizare</div>
+      <div class="project-location">📍 Râmnicu Vâlcea, Vâlcea</div>
+      <div class="project-desc">Upgrade complet al iluminatului unui hotel cu 80 de camere: soluție LED dimabilă, control DALI per cameră, iluminat decorativ și de urgență, sisteme de automatizare pentru coridoare.</div>
+      <div class="project-tags">
+        <span class="project-tag">LED dimabil</span>
+        <span class="project-tag">Control DALI</span>
+        <span class="project-tag">Automatizare</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val">80</div><div class="metric-label">camere hotel</div></div>
+        <div class="metric"><div class="metric-val">50%</div><div class="metric-label">economie energie</div></div>
+        <div class="metric"><div class="metric-val">4★</div><div class="metric-label">clasificare</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TESTIMONIALE -->
+<div class="testimonials">
+  <div class="section-label">Ce spun clienții noștri</div>
+  <h2 class="section-title">Recenzii și feedback</h2>
+  <p class="section-sub">Peste 200 de proiecte finalizate cu succes în toată România</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>„Am colaborat cu Volta Electric pentru dotarea halei noastre de producție. Materiale de calitate, livrare la timp și consultanță tehnică excelentă. Recomand cu toată încrederea!"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MP</div>
+        <div><div class="author-name">Mihai P.</div><div class="author-role">Director tehnic, firmă producție — Slatina</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>„Colaborăm cu Volta Electric de peste 5 ani. Întotdeauna au stoc, prețuri corecte și răspund rapid la solicitări. Sunt furnizorul nostru principal de materiale electrice."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AC</div>
+        <div><div class="author-name">Alexandru C.</div><div class="author-role">Electrician autorizat — București</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>„Am comandat materiale pentru un proiect de 40 de apartamente. Livrare completă în 48h, produse conforme cu specificațiile, factură și certificate la zi. Profesioniști!"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">DI</div>
+        <div><div class="author-name">Dan I.</div><div class="author-role">Antreprenor construcții — București</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ai un proiect în curs?</h2>
+  <p>Trimite-ne specificațiile și îți facem o ofertă completă de materiale în aceeași zi.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-dark">✉️ Solicită ofertă proiect</a>
+    <a href="calculator.html" class="btn-outline-dark">🧮 Calculator necesar materiale</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
+      <p>Furnizor de top in echipamente si materiale electrice, cu peste 20 de ani de experienta. Doua locatii: Slatina si Bucuresti.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/40724702632" target="_blank" rel="noopener" aria-label="WhatsApp">&#128172;</a>
+        <a href="mailto:office@voltaelectric.ro" aria-label="Email">&#128231;</a>
+        <a href="tel:+40724702632" aria-label="Telefon">&#128222;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Produse</h5>
+      <a href="produse.html">Cabluri &amp; Conductori</a>
+      <a href="produse.html">Tablouri Electrice</a>
+      <a href="produse.html">Aparataj Modular</a>
+      <a href="produse.html">Iluminat LED</a>
+      <a href="produse.html">Prize &amp; Intrerupatoare</a>
+    </div>
+    <div class="footer-col">
+      <h5>Companie</h5>
+      <a href="index.html">Despre noi</a>
+      <a href="branduri.html">Branduri</a>
+      <a href="proiecte.html">Proiecte</a>
+      <a href="blog.html">Blog tehnic</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="footer-contact"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">SLATINA</strong></div>
+      <div class="footer-contact">&#128205; Piata Garii nr. 8, Bl. 9, Olt</div>
+      <div class="footer-contact">&#128222; <a href="tel:+40724702632">0724 702 632</a></div>
+      <div class="footer-contact" style="margin-top:10px"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">BUCURESTI</strong></div>
+      <div class="footer-contact">&#128205; Splaiul Unirii 160, Sector 4</div>
+      <div class="footer-contact">&#128222; <a href="tel:+40723038449">0723 038 449</a></div>
+      <div class="footer-contact">&#128231; <a href="mailto:office@voltaelectric.ro">office@voltaelectric.ro</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Volta Electric SRL &mdash; Slatina, Olt. Toate drepturile rezervate.</span>
+    <span>
+      <a href="politica-cookies.html">Politica de cookies</a>
+      &nbsp;&middot;&nbsp;
+      <a href="politica-confidentialitate.html">Confidentialitate</a>
+      &nbsp;&middot;&nbsp;
+      <a href="termeni-conditii.html">Termeni</a>
+    </span>
+  </div>
+</footer>
+
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank">💬</a>
+
+<script>
+function filterProjects(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card => {
+    const show = type === 'all' || card.dataset.type === type;
+    card.style.display = show ? 'block' : 'none';
+    if (show) {
+      card.style.animation = 'none';
+      card.offsetHeight;
+      card.style.animation = 'fadeIn .3s ease';
+    }
+  });
+}
+</script>
+<style>
+@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+</style>
+<script src="back-to-top.js"></script>
+<script src="scroll-animations.js"></script>
+<script src="mobile-nav.js"></script>
+<script src="cookie-banner.js"></script>
+</body>
+</html>

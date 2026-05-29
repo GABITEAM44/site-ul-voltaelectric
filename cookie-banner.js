@@ -1,0 +1,103 @@
+(function () {
+  'use strict';
+
+  var COOKIE_KEY = 'volta_cookie_consent';
+  var COOKIE_DAYS = 365;
+
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+  }
+
+  function setCookie(name, value, days) {
+    var expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + value + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+
+  function removeBanner() {
+    var el = document.getElementById('volta-cookie-banner');
+    if (el) {
+      el.style.transform = 'translateY(120%)';
+      el.style.opacity = '0';
+      setTimeout(function () { el.remove(); }, 400);
+    }
+  }
+
+  function acceptAll() {
+    setCookie(COOKIE_KEY, 'all', COOKIE_DAYS);
+    removeBanner();
+  }
+
+  function acceptNecessary() {
+    setCookie(COOKIE_KEY, 'necessary', COOKIE_DAYS);
+    removeBanner();
+  }
+
+  function injectBanner() {
+    if (getCookie(COOKIE_KEY)) return;
+
+    var style = document.createElement('style');
+    style.textContent = [
+      '#volta-cookie-banner{',
+        'position:fixed;bottom:0;left:0;right:0;z-index:9999;',
+        'background:#1A1A2E;color:#fff;',
+        'padding:20px 24px;',
+        'display:flex;align-items:center;gap:20px;flex-wrap:wrap;',
+        'box-shadow:0 -4px 24px rgba(0,0,0,.35);',
+        'transform:translateY(0);opacity:1;',
+        'transition:transform .4s ease,opacity .4s ease;',
+        'font-family:"Inter",sans-serif;font-size:14px;line-height:1.5;',
+      '}',
+      '#volta-cookie-banner .vck-text{flex:1;min-width:220px;}',
+      '#volta-cookie-banner .vck-text strong{color:#F5C400;font-size:15px;display:block;margin-bottom:4px;}',
+      '#volta-cookie-banner .vck-text a{color:#F5C400;text-decoration:underline;}',
+      '#volta-cookie-banner .vck-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;}',
+      '#volta-cookie-banner .vck-btn{',
+        'padding:10px 20px;border-radius:8px;border:none;cursor:pointer;',
+        'font-size:14px;font-weight:600;font-family:inherit;transition:background .2s;',
+        'white-space:nowrap;',
+      '}',
+      '#volta-cookie-banner .vck-btn-all{background:#F5C400;color:#1A1A2E;}',
+      '#volta-cookie-banner .vck-btn-all:hover{background:#e8b800;}',
+      '#volta-cookie-banner .vck-btn-necessary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);}',
+      '#volta-cookie-banner .vck-btn-necessary:hover{background:rgba(255,255,255,.08);}',
+      '#volta-cookie-banner .vck-icon{font-size:28px;flex-shrink:0;}',
+      '@media(max-width:600px){',
+        '#volta-cookie-banner{flex-direction:column;align-items:flex-start;}',
+        '#volta-cookie-banner .vck-actions{width:100%;}',
+        '#volta-cookie-banner .vck-btn{flex:1;text-align:center;}',
+      '}'
+    ].join('');
+    document.head.appendChild(style);
+
+    var banner = document.createElement('div');
+    banner.id = 'volta-cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Consimțământ cookie-uri');
+    banner.innerHTML = [
+      '<div class="vck-icon" aria-hidden="true">🍪</div>',
+      '<div class="vck-text">',
+        '<strong>Acest site folosește cookie-uri</strong>',
+        'Folosim cookie-uri pentru a îmbunătăți experiența de navigare și a analiza traficul. ',
+        'Cookie-urile necesare asigură funcționarea corectă a site-ului. ',
+        'Prin clic pe <em>„Acceptă toate"</em> ești de acord și cu cookie-urile analitice. ',
+        'Află mai multe în <a href="politica-cookies.html">Politica de cookies</a>.',
+      '</div>',
+      '<div class="vck-actions">',
+        '<button class="vck-btn vck-btn-necessary" id="vck-necessary">Doar necesare</button>',
+        '<button class="vck-btn vck-btn-all" id="vck-all">Acceptă toate</button>',
+      '</div>'
+    ].join('');
+
+    document.body.appendChild(banner);
+
+    document.getElementById('vck-all').addEventListener('click', acceptAll);
+    document.getElementById('vck-necessary').addEventListener('click', acceptNecessary);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectBanner);
+  } else {
+    injectBanner();
+  }
+})();
