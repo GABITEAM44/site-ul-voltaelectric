@@ -109,9 +109,14 @@
       background: var(--gray-light); height: 160px;
       display: flex; align-items: center; justify-content: center;
       font-size: 56px; border-bottom: 1px solid #F0F0F0;
-      transition: background .25s;
+      transition: background .25s; overflow: hidden;
+    }
+    .product-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .35s ease;
     }
     .product-card:hover .product-img { background: #FFFBEA; }
+    .product-card:hover .product-img img { transform: scale(1.06); }
     .product-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
     .product-cat { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); }
     .product-name { font-size: 15px; font-weight: 600; color: var(--dark); line-height: 1.4; }
@@ -263,7 +268,7 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-img">🔌</div>
+          <div class="product-img"><img src="images/produse/cabluri.jpg" alt="Cabluri si conductori electrici" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Cablu</div>
             <div class="product-name">Cablu NYY-J 3×1.5mm²</div>
@@ -273,7 +278,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🔌</div>
+          <div class="product-img"><img src="images/produse/cabluri.jpg" alt="Cabluri si conductori electrici" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Cablu</div>
             <div class="product-name">Cablu NYY-J 3×2.5mm²</div>
@@ -283,7 +288,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🔌</div>
+          <div class="product-img"><img src="images/produse/cabluri.jpg" alt="Cabluri si conductori electrici" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Conductor</div>
             <div class="product-name">Conductor CYY-F 3×1.5mm²</div>
@@ -293,7 +298,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🔌</div>
+          <div class="product-img"><img src="images/produse/cabluri.jpg" alt="Cabluri si conductori electrici" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Cablu</div>
             <div class="product-name">Cablu CYABY 4×10mm²</div>
@@ -316,7 +321,7 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-img">⚙️</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="Aparataj electric modular" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Aparataj</div>
             <div class="product-name">Disjunctor 1P 16A — curba C</div>
@@ -326,7 +331,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">⚙️</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="Aparataj electric modular" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Aparataj</div>
             <div class="product-name">Disjunctor 3P 32A — curba C</div>
@@ -336,7 +341,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🔒</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="Intrerupator diferential" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Protecție</div>
             <div class="product-name">Întrerupător diferențial 2P 25A/30mA</div>
@@ -346,7 +351,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🏠</div>
+          <div class="product-img"><img src="images/produse/prize.jpg" alt="Priza Schuko" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Prize</div>
             <div class="product-name">Priză Schuko 2P+T 16A încastrată</div>
@@ -369,7 +374,7 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-img">💡</div>
+          <div class="product-img"><img src="images/produse/iluminat.jpg" alt="Corp de iluminat LED" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Iluminat LED</div>
             <div class="product-name">Panou LED 60×60cm 40W</div>
@@ -379,7 +384,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">💡</div>
+          <div class="product-img"><img src="images/produse/iluminat.jpg" alt="Corp de iluminat LED" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Iluminat Industrial</div>
             <div class="product-name">Proiector LED 100W exterior</div>
@@ -389,7 +394,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">💡</div>
+          <div class="product-img"><img src="images/produse/iluminat.jpg" alt="Corp de iluminat LED" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Iluminat</div>
             <div class="product-name">Tub LED T8 18W 120cm</div>
@@ -399,7 +404,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">💡</div>
+          <div class="product-img"><img src="images/produse/iluminat.jpg" alt="Corp de iluminat LED" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Iluminat de urgență</div>
             <div class="product-name">Panou evacuare LED 3h</div>
@@ -431,7 +436,7 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-img">🛡️</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="Echipament de protectie" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Protecție</div>
             <div class="product-name">Contactor 3P 25A 230V</div>
@@ -441,7 +446,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🌡️</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="Releu termic" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Automatizare</div>
             <div class="product-name">Releu termic 9–13A</div>
@@ -451,7 +456,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">⚡</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="Descarcator de supratensiune" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Protecție</div>
             <div class="product-name">Descărcător supratensiune 4P</div>
@@ -461,7 +466,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🔋</div>
+          <div class="product-img"><img src="images/produse/aparataj.jpg" alt="UPS line-interactive" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Automatizare</div>
             <div class="product-name">UPS 1000VA line-interactive</div>
@@ -484,7 +489,7 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-img">📦</div>
+          <div class="product-img"><img src="images/produse/consumabile.jpg" alt="Consumabile electrice" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Tuburi</div>
             <div class="product-name">Tub flexibil PVC Ø20mm — 50m</div>
@@ -494,7 +499,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">📦</div>
+          <div class="product-img"><img src="images/produse/consumabile.jpg" alt="Consumabile electrice" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Jgheaburi</div>
             <div class="product-name">Jgheab cablu 60×40mm — 2m</div>
@@ -504,7 +509,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">🔧</div>
+          <div class="product-img"><img src="images/produse/consumabile.jpg" alt="Accesorii de cablu" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Accesorii</div>
             <div class="product-name">Papuci de cablu — set 100buc</div>
@@ -514,7 +519,7 @@
           <a href="contact.html" class="product-cta">Solicită ofertă</a>
         </div>
         <div class="product-card">
-          <div class="product-img">📦</div>
+          <div class="product-img"><img src="images/produse/consumabile.jpg" alt="Consumabile electrice" loading="lazy"></div>
           <div class="product-body">
             <div class="product-cat">Doze</div>
             <div class="product-name">Doză derivație IP55 — 100×100mm</div>
