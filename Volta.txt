@@ -1,4 +1,0 @@
-cd "C:\Users\dudas\OneDrive\CLAUDE PROJECT\Site Web Voltaelectric"
-git remote add origin https://github.com/GABITEAM44/site-voltaelectric.git
-git branch -M main
-git push -u origin main
