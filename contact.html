@@ -113,6 +113,30 @@
       cursor: pointer; transition: all .2s;
       margin-top: 8px;
     }
+    /* Validare inline */
+    .field-err {
+      display: none; font-size: 12px; color: #e53935;
+      margin-top: 5px; font-weight: 500;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--yellow); outline: none;
+      box-shadow: 0 0 0 3px rgba(245,196,0,.15);
+    }
+    .form-feedback {
+      padding: 12px 16px; border-radius: 10px;
+      font-size: 14px; font-weight: 600; margin-bottom: 12px;
+    }
+    .form-feedback--err {
+      background: #FFEBEE; color: #c62828;
+      border: 1px solid #ef9a9a;
+    }
+    .form-feedback--ok {
+      background: #E8F5E9; color: #2E7D32;
+      border: 1px solid #a5d6a7;
+    }
     .btn-submit:hover { background: var(--yellow-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,196,0,.4); }
 
     .form-note { font-size: 12px; color: var(--gray-mid); text-align: center; margin-top: 12px; }
@@ -339,30 +363,33 @@
       <h2>Solicită o ofertă</h2>
       <p>Completează formularul și te contactăm în aceeași zi lucrătoare cu o ofertă personalizată.</p>
 
-      <form id="ofertaForm" onsubmit="submitForm(event)">
+      <form id="ofertaForm" onsubmit="submitForm(event)" novalidate>
         <div class="form-row">
           <div class="form-group">
-            <label>Numele complet *</label>
-            <input type="text" placeholder="Ion Popescu" required />
+            <label for="f-nume">Numele complet *</label>
+            <input id="f-nume" type="text" placeholder="Ion Popescu" autocomplete="name" />
+            <span class="field-err" id="err-nume"></span>
           </div>
           <div class="form-group">
-            <label>Firma (opțional)</label>
-            <input type="text" placeholder="SC Construct SRL" />
+            <label for="f-firma">Firma (opțional)</label>
+            <input id="f-firma" type="text" placeholder="SC Construct SRL" autocomplete="organization" />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Telefon *</label>
-            <input type="tel" placeholder="07XX XXX XXX" required />
+            <label for="f-tel">Telefon *</label>
+            <input id="f-tel" type="tel" placeholder="07XX XXX XXX" autocomplete="tel" />
+            <span class="field-err" id="err-tel"></span>
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="email@firma.ro" />
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" placeholder="email@firma.ro" autocomplete="email" />
+            <span class="field-err" id="err-email"></span>
           </div>
         </div>
         <div class="form-group">
-          <label>Tipul proiectului</label>
-          <select>
+          <label for="f-tip">Tipul proiectului</label>
+          <select id="f-tip">
             <option value="">— Selectează —</option>
             <option>Rezidențial (casă / apartament)</option>
             <option>Comercial (birou / magazin / hotel)</option>
@@ -372,8 +399,9 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Descriere solicitare *</label>
-          <textarea placeholder="Descrieți pe scurt ce produse aveți nevoie, cantitățile aproximative sau detalii despre proiect..." required></textarea>
+          <label for="f-mesaj">Descriere solicitare *</label>
+          <textarea id="f-mesaj" placeholder="Descrieți pe scurt ce produse aveți nevoie, cantitățile aproximative sau detalii despre proiect..."></textarea>
+          <span class="field-err" id="err-mesaj"></span>
         </div>
         <div class="form-group">
           <label>Atașează lista de materiale (opțional)</label>
@@ -385,6 +413,7 @@
           </div>
           <p id="fileName" style="font-size:13px;color:var(--yellow);margin-top:8px;display:none"></p>
         </div>
+        <div id="form-feedback" class="form-feedback" style="display:none"></div>
         <button type="submit" class="btn-submit"><svg class="ico"><use href="#i-mail"></use></svg> Trimite solicitarea</button>
         <p class="form-note">* Câmpuri obligatorii. Datele tale sunt confidențiale și nu vor fi partajate cu terți.</p>
       </form>
@@ -462,10 +491,94 @@ function showFile(input) {
   const el = document.getElementById('fileName');
   if (name) { el.textContent = '📎 ' + name; el.style.display = 'block'; }
 }
+
+/* ── Validare inline formular ── */
+var VALIDATORS = {
+  'f-nume': {
+    test: function(v) { return v.trim().length >= 3; },
+    msg: 'Te rugăm introdu numele complet (minim 3 caractere).'
+  },
+  'f-tel': {
+    test: function(v) { return /^(\+40|0)[0-9\s\-\.]{8,14}$/.test(v.trim()); },
+    msg: 'Număr invalid. Exemplu: 0724 702 632 sau +40724702632.'
+  },
+  'f-email': {
+    test: function(v) { return v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
+    msg: 'Adresă de email invalidă.'
+  },
+  'f-mesaj': {
+    test: function(v) { return v.trim().length >= 10; },
+    msg: 'Te rugăm descrie solicitarea (minim 10 caractere).'
+  }
+};
+
+function setFieldState(id, valid, msg) {
+  var input = document.getElementById(id);
+  var errEl = document.getElementById('err-' + id.replace('f-',''));
+  if (!input) return;
+  input.style.borderColor = valid ? '#4CAF50' : (msg ? '#e53935' : '');
+  if (errEl) {
+    errEl.textContent = valid ? '' : (msg || '');
+    errEl.style.display = (valid || !msg) ? 'none' : 'block';
+  }
+}
+
+function validateField(id) {
+  var v = VALIDATORS[id];
+  if (!v) return true;
+  var input = document.getElementById(id);
+  if (!input) return true;
+  var val = input.value;
+  var ok = v.test(val);
+  setFieldState(id, ok, ok ? '' : v.msg);
+  return ok;
+}
+
+/* Validare live pe blur */
+Object.keys(VALIDATORS).forEach(function(id) {
+  document.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('blur', function() { validateField(id); });
+    el.addEventListener('input', function() {
+      if (el.style.borderColor === 'rgb(229, 57, 53)') validateField(id);
+    });
+  });
+});
+
 function submitForm(e) {
   e.preventDefault();
+
+  /* Validare toate câmpurile obligatorii */
+  var fields = ['f-nume', 'f-tel', 'f-email', 'f-mesaj'];
+  var allOk = true;
+  var firstError = null;
+
+  fields.forEach(function(id) {
+    var ok = validateField(id);
+    if (!ok) {
+      allOk = false;
+      if (!firstError) firstError = id;
+    }
+  });
+
+  if (!allOk) {
+    /* Focus pe primul câmp eronat */
+    var el = document.getElementById(firstError);
+    if (el) el.focus();
+    /* Feedback global */
+    var fb = document.getElementById('form-feedback');
+    fb.textContent = 'Te rugăm corectează câmpurile marcate cu roșu.';
+    fb.className = 'form-feedback form-feedback--err';
+    fb.style.display = 'block';
+    return;
+  }
+
+  /* Trimite (simulat — înlocuiește cu fetch/Formspree dacă ai backend) */
+  document.getElementById('form-feedback').style.display = 'none';
   document.getElementById('ofertaForm').style.display = 'none';
   document.getElementById('successMsg').style.display = 'block';
+  document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 </script>
 <script src="icons.js"></script>
