@@ -121,3 +121,6 @@ footer { background: #0d0d1f; color: #8899aa; }
   .proof-divider { display: none; }
   .hero-proof { gap: 12px; }
 }
+
+/* ── PICTURE wrapper ── */
+picture { display: contents; }
