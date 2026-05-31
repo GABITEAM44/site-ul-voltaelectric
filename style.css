@@ -6,6 +6,17 @@
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── SKIP TO CONTENT ── */
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--yellow); color: var(--dark);
+  font-weight: 700; font-size: 14px;
+  padding: 10px 20px; border-radius: 0 0 8px 8px;
+  text-decoration: none; z-index: 9999;
+  transition: top .15s;
+}
+.skip-link:focus { top: 0; }
+
 /* ── VARIABILE ── */
 :root {
   --yellow: #F5C400;
@@ -124,3 +135,54 @@ footer { background: #0d0d1f; color: #8899aa; }
 
 /* ── PICTURE wrapper ── */
 picture { display: contents; }
+
+/* ══════════════════════════════════════════════════════════
+   ETAPA E — TIPOGRAFIE IERARHIE MOBIL
+   Scară: h1 → h2 → h3 → body cu raport vizual clar pe orice ecran
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Tabletă (≤768px) ── */
+@media (max-width: 768px) {
+  /* Page hero */
+  .page-hero { padding: 44px 20px; }
+  .page-hero h1 { font-size: clamp(26px, 7vw, 38px); margin-bottom: 10px; }
+  .page-hero p { font-size: 15px; }
+
+  /* Section headings */
+  .section-title { font-size: clamp(22px, 6vw, 32px) !important; margin-bottom: 8px !important; }
+  .section-sub { font-size: 15px !important; margin-bottom: 32px !important; }
+  .section-label { font-size: 11px !important; letter-spacing: 2px !important; }
+
+  /* Body text */
+  p { font-size: 15px; line-height: 1.65; }
+  li { font-size: 15px; line-height: 1.65; }
+
+  /* Carduri / elemente h3-h4 */
+  h3 { font-size: clamp(17px, 4.5vw, 22px); }
+  h4 { font-size: clamp(15px, 4vw, 18px); }
+
+  /* Butoane — tap target minim 44px */
+  .btn-yellow { font-size: 15px; padding: 13px 24px; min-height: 44px; }
+  .btn-header { min-height: 44px !important; }
+
+  /* Header logo mai mic */
+  .logo { font-size: 22px; }
+}
+
+/* ── Telefon mic (≤480px) ── */
+@media (max-width: 480px) {
+  .page-hero { padding: 36px 16px; }
+  .page-hero h1 { font-size: clamp(24px, 8vw, 32px); }
+  .page-hero p { font-size: 14px; }
+
+  .section-title { font-size: clamp(20px, 7vw, 26px) !important; }
+  .section-sub { font-size: 14px !important; margin-bottom: 24px !important; }
+
+  p { font-size: 14px; }
+  li { font-size: 14px; }
+
+  h3 { font-size: clamp(16px, 5vw, 20px); }
+  h4 { font-size: clamp(14px, 4.5vw, 17px); }
+
+  .btn-yellow { font-size: 14px; padding: 12px 20px; }
+}

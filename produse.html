@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -132,11 +132,12 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Sari la conținut principal</a>
 
 <header>
   <div class="header-top">
     <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
-    <nav>
+    <nav aria-label="Navigare principală">
       <a href="produse.html" class="active">Produse</a>
       <a href="branduri.html">Branduri</a>
       <a href="proiecte.html">Proiecte</a>
@@ -205,7 +206,7 @@
   </aside>
 
   <!-- PRODUSE -->
-  <main>
+  <main id="main-content">
     <div class="products-header">
       <div class="products-count">Afișând <strong>172 produse</strong> din toate categoriile</div>
       <div class="search-bar">
@@ -600,7 +601,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" title="WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp" title="WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
 
 <script src="icons.js"></script>
 <script src="call-btn.js"></script>

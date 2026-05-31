@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -203,11 +203,12 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Sari la conținut principal</a>
 
 <header>
   <div class="header-top">
     <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
-    <nav>
+    <nav aria-label="Navigare principală">
       <a href="produse.html">Produse</a>
       <a href="branduri.html">Branduri</a>
       <a href="proiecte.html">Proiecte</a>
@@ -404,7 +405,7 @@
           <span class="field-err" id="err-mesaj"></span>
         </div>
         <div class="form-group">
-          <label>Atașează lista de materiale (opțional)</label>
+          <label for="fileInput">Atașează lista de materiale (opțional)</label>
           <div class="upload-area" onclick="document.getElementById('fileInput').click()">
             <input type="file" id="fileInput" accept=".pdf,.xlsx,.xls,.doc,.docx" onchange="showFile(this)" />
             <div class="upload-icon"><svg class="ico"><use href="#i-paperclip"></use></svg></div>
@@ -479,7 +480,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" title="WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp" title="WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
 
 <script>
 function switchLoc(idx) {

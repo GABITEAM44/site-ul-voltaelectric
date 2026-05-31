@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -131,11 +131,12 @@
   <link rel="apple-touch-icon" href="favicon.svg">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Sari la conținut principal</a>
 
 <header>
   <div class="header-top">
     <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
-    <nav>
+    <nav aria-label="Navigare principală">
       <a href="produse.html">Produse</a>
       <a href="proiecte.html">Proiecte</a>
       <a href="contact.html">Contact</a>
@@ -205,17 +206,17 @@
 
         <div class="fields-grid">
           <div class="field">
-            <label>Suprafața totală (mp) *</label>
+            <label for="suprafata">Suprafața totală (mp) *</label>
             <input type="number" id="suprafata" placeholder="ex: 85" min="10" />
             <div class="hint">Suprafața utilă a spațiului</div>
           </div>
           <div class="field">
-            <label>Număr camere / zone *</label>
+            <label for="camere">Număr camere / zone *</label>
             <input type="number" id="camere" placeholder="ex: 4" min="1" />
             <div class="hint">Inclusiv baie, bucătărie, hol</div>
           </div>
           <div class="field">
-            <label>Înălțime tavan (m)</label>
+            <label for="inaltime">Înălțime tavan (m)</label>
             <select id="inaltime">
               <option value="2.6">Standard — 2,6m</option>
               <option value="3.0">Înalt — 3,0m</option>
@@ -225,7 +226,7 @@
             </select>
           </div>
           <div class="field">
-            <label>Tip instalație</label>
+            <label for="tipInst">Tip instalație</label>
             <select id="tipInst">
               <option value="nou">Instalație nouă</option>
               <option value="renovare">Renovare completă</option>
@@ -360,7 +361,7 @@
     </span>
   </div>
 </footer>
-<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
 
 <script>
 let selectedType = '';
