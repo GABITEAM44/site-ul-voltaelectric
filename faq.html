@@ -77,7 +77,7 @@
     .faq-layout { max-width: 1200px; margin: 56px auto 80px; padding: 0 24px; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
 
     /* CATEGORII NAV */
-    .cat-nav { position: sticky; top: 90px; background: var(--white); border: 1.5px solid #E8E8E8; border-radius: 16px; padding: 20px; }
+    .cat-nav { position: sticky; top: 90px; background: var(--white); border: 1.5px solid #E8E8E8; border-radius: 16px; padding: 20px; z-index: 10; }
     .cat-nav-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-mid); margin-bottom: 14px; }
     .cat-link { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: var(--gray-mid); font-size: 14px; font-weight: 500; transition: all .2s; margin-bottom: 4px; cursor: pointer; border: none; background: none; width: 100%; text-align: left; font-family: 'Inter', sans-serif; }
     .cat-link:hover, .cat-link.active { background: #FFFBEA; color: var(--dark); }
@@ -86,7 +86,7 @@
     .cat-count { margin-left: auto; background: var(--gray-light); border-radius: 10px; font-size: 11px; padding: 2px 7px; font-weight: 700; color: var(--gray-mid); }
 
     /* FAQ SECTIONS */
-    .faq-section { margin-bottom: 52px; }
+    .faq-section { margin-bottom: 52px; scroll-margin-top: 100px; }
     .faq-section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--gray-light); }
     .faq-section-icon { font-size: 28px; }
     .faq-section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--dark); }
@@ -133,7 +133,20 @@
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.1); }
     .hidden { display: none !important; }
 
-    @media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; } .cat-nav { position: static; display: flex; flex-wrap: wrap; gap: 8px; padding: 16px; } .cat-nav-title { width: 100%; } .cat-link { flex: 0 0 auto; } }
+    @media (max-width: 900px) {
+      .faq-layout { grid-template-columns: 1fr; }
+      .cat-nav {
+        position: static; z-index: auto;
+        display: flex; flex-wrap: nowrap; overflow-x: auto;
+        gap: 8px; padding: 12px 16px;
+        border-radius: 12px; margin-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .cat-nav::-webkit-scrollbar { display: none; }
+      .cat-nav-title { display: none; }
+      .cat-link { flex: 0 0 auto; width: auto; white-space: nowrap; padding: 8px 14px; margin-bottom: 0; }
+    }
     @media (max-width: 768px) { nav a:not(.btn-header) { display: none; } .faq-search { max-width: 100%; } }
   </style>
   <!-- Favicon -->
@@ -184,7 +197,7 @@
   </nav>
 
   <!-- FAQ CONTENT -->
-  <main id="main-content" id="faqMain">
+  <main id="main-content">
 
     <!-- CABLURI -->
     <div class="faq-section" data-cat="cabluri" id="sec-cabluri">
