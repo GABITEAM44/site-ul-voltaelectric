@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48" width="180" height="48" role="img" aria-label="Volta Electric SRL">
+  <!-- Symbol V stilizat — bara stanga -->
+  <polygon points="4,4 14,4 22,36 12,36" fill="#CC2200"/>
+  <!-- Symbol V stilizat — bara dreapta -->
+  <polygon points="28,4 38,4 30,36 20,36" fill="#CC2200"/>
+  <!-- Accent galben orizontal jos in V -->
+  <rect x="14" y="30" width="14" height="5" rx="1" fill="#F5C400"/>
+  <!-- Linie orizontala sus (detaliu grafic) -->
+  <rect x="4" y="4" width="34" height="4" rx="1" fill="#CC2200"/>
+
+  <!-- Text VOLTA — alb pe fond întunecat -->
+  <text x="50" y="28"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-weight="900"
+        font-size="24"
+        fill="#FFFFFF"
+        letter-spacing="1.5">VOLTA</text>
+  <!-- Text electric — portocaliu -->
+  <text x="51" y="43"
+        font-family="'Arial', sans-serif"
+        font-weight="400"
+        font-size="12"
+        fill="#E8510A"
+        letter-spacing="3.5">electric</text>
+</svg>

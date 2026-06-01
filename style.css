@@ -35,7 +35,10 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--w
 /* ── HEADER ── */
 header { background: var(--dark); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,.4); }
 .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px; }
-.logo { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-decoration: none; }
+.logo { display: flex; align-items: center; text-decoration: none; line-height: 1; }
+.logo img { height: 40px; width: auto; display: block; }
+.logo-text { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: var(--white); }
+.logo-text span { color: var(--yellow); }
 .logo span { color: var(--yellow); }
 nav { display: flex; gap: 8px; align-items: center; }
 nav a { color: #ccc; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 6px; transition: all .2s; letter-spacing: .3px; }
