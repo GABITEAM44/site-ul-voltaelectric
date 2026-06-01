@@ -17,7 +17,10 @@
   <meta name="twitter:title" content="Calculator Materiale Electrice — Volta Electric" />
   <meta name="twitter:description" content="Estimează necesarul de materiale electrice gratuit, în 3 pași." />
   <meta name="twitter:image" content="https://www.voltaelectric.ro/og-image.jpg" />
-    <link rel="stylesheet" href="style.min.css">
+        <meta name="theme-color" content="#1A1A2E" />
+  <link rel="canonical" href="https://www.voltaelectric.ro/calculator" />
+  <link rel="stylesheet" href="style.min.css">
+  <link rel="preload" href="fonts/inter-latin-w400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
   <style>
 /* CALCULATOR LAYOUT */
@@ -148,7 +151,7 @@
 <div class="page-hero">
   <div class="page-hero-inner">
     <div class="breadcrumb"><a href="index.html">Acasă</a><span>›</span><strong>Calculator materiale</strong></div>
-    <h1><svg class="ico"><use href="#i-calculator"></use></svg> Calculator <em>necesar materiale</em></h1>
+    <h1><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calculator"></use></svg> Calculator <em>necesar materiale</em></h1>
     <p>Estimează rapid cantitățile de materiale electrice necesare proiectului tău — gratuit, în 3 pași simpli.</p>
   </div>
 </div>
@@ -173,22 +176,22 @@
         <div class="calc-section-sub">Selectează tipul pentru a personaliza calculul</div>
         <div class="type-grid">
           <div class="type-card" onclick="selectType('apartament', this)">
-            <div class="icon"><svg class="ico"><use href="#i-home"></use></svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg></div>
             <h4>Apartament</h4>
             <p>1–4 camere, instalație standard</p>
           </div>
           <div class="type-card" onclick="selectType('casa', this)">
-            <div class="icon"><svg class="ico"><use href="#i-home"></use></svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg></div>
             <h4>Casă / Vilă</h4>
             <p>Parter + etaj, instalație completă</p>
           </div>
           <div class="type-card" onclick="selectType('birou', this)">
-            <div class="icon"><svg class="ico"><use href="#i-building"></use></svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-building"></use></svg></div>
             <h4>Birou / Spațiu comercial</h4>
             <p>Open space sau celular</p>
           </div>
           <div class="type-card" onclick="selectType('hala', this)">
-            <div class="icon"><svg class="ico"><use href="#i-factory"></use></svg></div>
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-factory"></use></svg></div>
             <h4>Hală / Depozit</h4>
             <p>Industrial, suprafețe mari</p>
           </div>
@@ -237,12 +240,12 @@
 
         <div class="calc-section-sub" style="margin-bottom:14px">Ce dorești să incluzi în calcul?</div>
         <div class="options-grid">
-          <label class="option-check"><input type="checkbox" id="optCablu" checked /><label for="optCablu"><svg class="ico"><use href="#i-cable"></use></svg> Cabluri & conductori</label></label>
-          <label class="option-check"><input type="checkbox" id="optPrize" checked /><label for="optPrize"><svg class="ico"><use href="#i-home"></use></svg> Prize & întrerupătoare</label></label>
-          <label class="option-check"><input type="checkbox" id="optTableau" checked /><label for="optTableau"><svg class="ico"><use href="#i-settings"></use></svg> Tablou electric</label></label>
-          <label class="option-check"><input type="checkbox" id="optLed" checked /><label for="optLed"><svg class="ico"><use href="#i-lightbulb"></use></svg> Iluminat LED</label></label>
-          <label class="option-check"><input type="checkbox" id="optTuburi" /><label for="optTuburi"><svg class="ico"><use href="#i-package"></use></svg> Tuburi & jgheaburi</label></label>
-          <label class="option-check"><input type="checkbox" id="optProtectie" /><label for="optProtectie"><svg class="ico"><use href="#i-shield"></use></svg> Protecție diferențială</label></label>
+          <label class="option-check"><input type="checkbox" id="optCablu" checked /><label for="optCablu"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cable"></use></svg> Cabluri & conductori</label></label>
+          <label class="option-check"><input type="checkbox" id="optPrize" checked /><label for="optPrize"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg> Prize & întrerupătoare</label></label>
+          <label class="option-check"><input type="checkbox" id="optTableau" checked /><label for="optTableau"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-settings"></use></svg> Tablou electric</label></label>
+          <label class="option-check"><input type="checkbox" id="optLed" checked /><label for="optLed"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg> Iluminat LED</label></label>
+          <label class="option-check"><input type="checkbox" id="optTuburi" /><label for="optTuburi"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-package"></use></svg> Tuburi & jgheaburi</label></label>
+          <label class="option-check"><input type="checkbox" id="optProtectie" /><label for="optProtectie"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg> Protecție diferențială</label></label>
         </div>
 
         <div class="calc-nav">
@@ -254,7 +257,7 @@
       <!-- PASUL 3: REZULTAT -->
       <div class="calc-section" id="step3">
         <div class="result-header">
-          <h3><svg class="ico"><use href="#i-check-circle"></use></svg> Estimare necesar materiale</h3>
+          <h3><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg> Estimare necesar materiale</h3>
           <p id="resultSubtitle">Calcul orientativ — valorile pot varia în funcție de configurația exactă</p>
         </div>
 
@@ -264,8 +267,8 @@
         </table>
 
         <div class="result-actions">
-          <button class="btn-print" onclick="window.print()"><svg class="ico"><use href="#i-printer"></use></svg> Printează / Salvează PDF</button>
-          <a href="contact.html" class="btn-oferta"><svg class="ico"><use href="#i-mail"></use></svg> Solicită ofertă pentru această listă</a>
+          <button class="btn-print" onclick="window.print()"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-printer"></use></svg> Printează / Salvează PDF</button>
+          <a href="contact.html" class="btn-oferta"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> Solicită ofertă pentru această listă</a>
           <button class="btn-reset" onclick="goStep(1);resetCalc()">↺ Calcul nou</button>
         </div>
       </div>
@@ -294,11 +297,11 @@
     <div class="info-card">
       <div class="info-card-title">Atenție</div>
       <div class="info-item">
-        <span class="info-item-icon"><svg class="ico"><use href="#i-alert-triangle"></use></svg></span>
+        <span class="info-item-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-alert-triangle"></use></svg></span>
         <p>Calculul este <strong>orientativ</strong> și se bazează pe medii statistice. Cantitățile exacte se stabilesc cu proiectantul electric autorizat.</p>
       </div>
       <div class="info-item">
-        <span class="info-item-icon"><svg class="ico"><use href="#i-ruler"></use></svg></span>
+        <span class="info-item-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-ruler"></use></svg></span>
         <p>Pentru proiecte complexe recomandăm o <strong>consultanță tehnică gratuită</strong> cu echipa noastră.</p>
       </div>
     </div>
@@ -306,7 +309,7 @@
     <div class="cta-card">
       <h4>Ai nevoie de ofertă exactă?</h4>
       <p>Trimite-ne planul de arhitectură sau lista de la proiectant și îți facem oferta în 24h.</p>
-      <a href="contact.html" class="btn-cta-yellow"><svg class="ico"><use href="#i-mail"></use></svg> Solicită ofertă</a>
+      <a href="contact.html" class="btn-cta-yellow"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> Solicită ofertă</a>
     </div>
   </aside>
 </div>
@@ -317,9 +320,9 @@
       <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
       <p>Furnizor de top in echipamente si materiale electrice, cu peste 20 de ani de experienta. Doua locatii: Slatina si Bucuresti.</p>
       <div class="footer-social">
-        <a href="https://wa.me/40724702632" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
-        <a href="mailto:office@voltaelectric.ro" aria-label="Email"><svg class="ico"><use href="#i-mail"></use></svg></a>
-        <a href="tel:+40724702632" aria-label="Telefon"><svg class="ico"><use href="#i-phone"></use></svg></a>
+        <a href="https://wa.me/40724702632" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-message-circle"></use></svg></a>
+        <a href="mailto:office@voltaelectric.ro" aria-label="Email"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></a>
+        <a href="tel:+40724702632" aria-label="Telefon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -342,12 +345,12 @@
     <div class="footer-col">
       <h5>Contact</h5>
       <div class="footer-contact"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">SLATINA</strong></div>
-      <div class="footer-contact"><svg class="ico"><use href="#i-map-pin"></use></svg> Piata Garii nr. 8, Bl. 9, Olt</div>
-      <div class="footer-contact"><svg class="ico"><use href="#i-phone"></use></svg> <a href="tel:+40724702632">0724 702 632</a></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg> Piata Garii nr. 8, Bl. 9, Olt</div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> <a href="tel:+40724702632">0724 702 632</a></div>
       <div class="footer-contact" style="margin-top:10px"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">BUCURESTI</strong></div>
-      <div class="footer-contact"><svg class="ico"><use href="#i-map-pin"></use></svg> Splaiul Unirii 160, Sector 4</div>
-      <div class="footer-contact"><svg class="ico"><use href="#i-phone"></use></svg> <a href="tel:+40723038449">0723 038 449</a></div>
-      <div class="footer-contact"><svg class="ico"><use href="#i-mail"></use></svg> <a href="mailto:office@voltaelectric.ro">office@voltaelectric.ro</a></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg> Splaiul Unirii 160, Sector 4</div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> <a href="tel:+40723038449">0723 038 449</a></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> <a href="mailto:office@voltaelectric.ro">office@voltaelectric.ro</a></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -361,7 +364,7 @@
     </span>
   </div>
 </footer>
-<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp"><svg class="ico"><use href="#i-message-circle"></use></svg></a>
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-message-circle"></use></svg></a>
 
 <script>
 let selectedType = '';
