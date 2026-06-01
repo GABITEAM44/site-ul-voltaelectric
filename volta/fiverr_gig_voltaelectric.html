@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiverr Gig — Voltaelectric</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Barlow',sans-serif; background:#13192b; display:flex; flex-direction:column; align-items:center; gap:28px; padding:40px 16px; }
+  h2 { color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:16px; letter-spacing:3px; text-transform:uppercase; opacity:0.4; }
+
+  /* THUMBNAIL */
+  .gig-thumb {
+    width:700px; height:390px;
+    background:linear-gradient(135deg,#0d1b2a 0%,#1a2744 50%,#0d1b2a 100%);
+    border-radius:14px; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:space-between; padding:44px 52px;
+    border:1px solid rgba(255,193,7,0.18);
+    box-shadow:0 24px 64px rgba(0,0,0,0.55);
+  }
+  .gig-thumb::before {
+    content:''; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,193,7,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,193,7,0.04) 1px,transparent 1px);
+    background-size:40px 40px;
+  }
+  .gig-thumb::after { content:''; position:absolute; left:0; top:0; bottom:0; width:5px; background:linear-gradient(180deg,#ffc107,#ff8f00); }
+
+  .thumb-left { position:relative; z-index:2; flex:1; }
+  .thumb-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(255,193,7,0.12); border:1px solid rgba(255,193,7,0.4);
+    border-radius:20px; padding:4px 14px; color:#ffc107;
+    font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:18px;
+  }
+  .thumb-title { font-family:'Barlow Condensed',sans-serif; font-size:48px; font-weight:900; color:#fff; line-height:1.0; text-transform:uppercase; margin-bottom:10px; }
+  .thumb-title span { color:#ffc107; }
+  .thumb-sub { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; max-width:280px; margin-bottom:22px; }
+  .thumb-tags { display:flex; gap:8px; flex-wrap:wrap; }
+  .tag { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:4px; padding:3px 10px; font-size:11px; color:rgba(255,255,255,0.55); font-weight:500; }
+
+  .thumb-right { position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+
+  .browser-mini { width:248px; background:#0a0f1e; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 8px 32px rgba(0,0,0,0.5); }
+  .browser-bar { background:#161d30; padding:7px 10px; display:flex; align-items:center; gap:5px; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .dot { width:6px; height:6px; border-radius:50%; }
+  .dot.r{background:#ff5f57;} .dot.y{background:#ffbd2e;} .dot.g{background:#28c840;}
+  .url-bar { flex:1; background:rgba(255,255,255,0.05); border-radius:3px; padding:2px 8px; font-size:9px; color:rgba(255,255,255,0.3); margin-left:6px; }
+  .mini-nav { background:#0d1b2a; padding:7px 10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .mini-logo { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:900; color:#fff; }
+  .mini-logo span{color:#ffc107;}
+  .mini-cta-nav { background:#ffc107; color:#000; font-size:7px; font-weight:700; padding:2px 7px; border-radius:3px; }
+  .mini-hero { background:linear-gradient(135deg,#0d1b2a,#1a2744); padding:14px 10px; }
+  .mini-h1 { font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:900; color:#fff; line-height:1.1; text-transform:uppercase; }
+  .mini-h1 span{color:#ffc107;}
+  .mini-p { font-size:7px; color:rgba(255,255,255,0.4); margin:5px 0 7px; line-height:1.4; }
+  .mini-btn-site { background:#ffc107; color:#000; font-size:7px; font-weight:700; padding:3px 9px; border-radius:3px; display:inline-block; }
+  .mini-stats { display:flex; gap:10px; padding:7px 10px; background:rgba(255,193,7,0.05); border-top:1px solid rgba(255,193,7,0.1); }
+  .mini-stat { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:800; color:#ffc107; }
+  .mini-stat small { display:block; font-family:'Barlow',sans-serif; font-size:6px; color:rgba(255,255,255,0.35); font-weight:400; }
+
+  .stats-row { display:flex; gap:8px; }
+  .stat-chip { background:rgba(255,193,7,0.08); border:1px solid rgba(255,193,7,0.25); border-radius:6px; padding:9px 14px; text-align:center; min-width:72px; }
+  .stat-chip .num { font-family:'Barlow Condensed',sans-serif; font-size:24px; font-weight:900; color:#ffc107; line-height:1; }
+  .stat-chip .lbl { font-size:9px; color:rgba(255,255,255,0.4); font-weight:500; margin-top:2px; }
+
+  /* PACKAGES */
+  .packages-card { width:700px; background:#0d1420; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.07); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+  .pkg-header { background:#0a0f1e; padding:16px 24px; border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; }
+  .pkg-header-title { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:800; color:#fff; text-transform:uppercase; letter-spacing:1px; }
+  .pkg-header-sub { font-size:11px; color:rgba(255,255,255,0.3); margin-left:auto; }
+  .pkg-grid { display:grid; grid-template-columns:190px 1fr 1fr 1fr; }
+  .pkg-col-header { padding:18px 14px; text-align:center; border-bottom:2px solid rgba(255,255,255,0.06); }
+  .pkg-col-header.active { background:rgba(255,193,7,0.06); border-bottom-color:#ffc107; }
+  .pkg-name { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:1px; }
+  .pkg-col-header.active .pkg-name { color:#ffc107; }
+  .pkg-price { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:900; color:#fff; line-height:1; margin-top:4px; }
+  .pkg-price sup { font-size:14px; vertical-align:super; }
+  .pkg-days { font-size:10px; color:rgba(255,255,255,0.3); margin-top:4px; }
+  .pkg-cell { padding:10px 16px; font-size:12px; color:rgba(255,255,255,0.5); border-bottom:1px solid rgba(255,255,255,0.04); display:flex; align-items:center; }
+  .pkg-cell.label { font-weight:600; color:rgba(255,255,255,0.65); font-size:11px; background:rgba(255,255,255,0.02); }
+  .pkg-cell.center { justify-content:center; text-align:center; }
+  .pkg-cell.active-col { background:rgba(255,193,7,0.03); }
+  .check{color:#4caf50;font-size:14px;} .cross{color:rgba(255,255,255,0.18);font-size:14px;}
+  .pkg-btn-row { display:grid; grid-template-columns:190px 1fr 1fr 1fr; padding:16px; gap:10px; background:rgba(255,255,255,0.02); }
+  .pkg-btn { padding:9px; border-radius:6px; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800; text-align:center; text-transform:uppercase; letter-spacing:0.5px; }
+  .pkg-btn.outline { border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.45); background:transparent; }
+  .pkg-btn.primary { background:#ffc107; color:#000; border:none; }
+
+  /* DESCRIPTION */
+  .desc-card { width:700px; background:#0d1420; border-radius:14px; border:1px solid rgba(255,255,255,0.07); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+  .desc-header { background:#0a0f1e; padding:14px 24px; border-bottom:1px solid rgba(255,255,255,0.06); font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:2px; }
+  .desc-body { padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .desc-section h3 { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800; color:#ffc107; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+  .desc-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:8px; }
+  .desc-icon { color:#ffc107; font-size:12px; margin-top:1px; flex-shrink:0; }
+  .desc-text { font-size:12px; color:rgba(255,255,255,0.55); line-height:1.45; }
+
+  .footer-label { color:rgba(255,255,255,0.15); font-size:10px; letter-spacing:2px; text-transform:uppercase; padding-bottom:16px; }
+</style>
+</head>
+<body>
+
+<h2>Fiverr Gig Preview · Voltaelectric</h2>
+
+<!-- THUMBNAIL -->
+<div class="gig-thumb">
+  <div class="thumb-left">
+    <div class="thumb-badge">⚡ Professional Website</div>
+    <div class="thumb-title">Business<br>Website<br><span>for B2B</span></div>
+    <div class="thumb-sub">Multi-page HTML/CSS · SEO ready · GDPR compliant · Fast delivery</div>
+    <div class="thumb-tags">
+      <span class="tag">12+ Pages</span>
+      <span class="tag">Dark Theme</span>
+      <span class="tag">No WordPress</span>
+      <span class="tag">GitHub Pages</span>
+    </div>
+  </div>
+  <div class="thumb-right">
+    <div class="browser-mini">
+      <div class="browser-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <div class="url-bar">voltaelectric.ro</div>
+      </div>
+      <div class="mini-nav">
+        <div class="mini-logo">VOLTA<span>ELECTRIC</span></div>
+        <div class="mini-cta-nav">Ofertă</div>
+      </div>
+      <div class="mini-hero">
+        <div class="mini-h1">Furnizor de top în<br><span>echipamente electrice</span></div>
+        <div class="mini-p">Volta Electric SRL — peste 20 de ani de experiență în distribuția materialelor electrice.</div>
+        <div class="mini-btn-site">Solicită ofertă →</div>
+      </div>
+      <div class="mini-stats">
+        <div class="mini-stat">20+<small>Ani exp.</small></div>
+        <div class="mini-stat">200+<small>Proiecte</small></div>
+        <div class="mini-stat">★4.9<small>Google</small></div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-chip"><div class="num">12+</div><div class="lbl">Pages</div></div>
+      <div class="stat-chip"><div class="num">SEO</div><div class="lbl">Optimized</div></div>
+      <div class="stat-chip"><div class="num">⚡</div><div class="lbl">Fast</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<div class="packages-card">
+  <div class="pkg-header">
+    <div class="pkg-header-title">⚡ Pricing Packages</div>
+    <div class="pkg-header-sub">All prices in EUR · Hosting included (GitHub Pages)</div>
+  </div>
+  <div class="pkg-grid">
+    <div class="pkg-col-header" style="border-bottom:2px solid rgba(255,255,255,0.06)">
+      <div style="font-size:10px;color:rgba(255,255,255,0.2);font-weight:600;text-transform:uppercase;letter-spacing:1px;">What's included</div>
+    </div>
+    <div class="pkg-col-header"><div class="pkg-name">Basic</div><div class="pkg-price"><sup>€</sup>30</div><div class="pkg-days">3 days delivery</div></div>
+    <div class="pkg-col-header active"><div class="pkg-name">Standard</div><div class="pkg-price"><sup>€</sup>75</div><div class="pkg-days">7 days delivery</div></div>
+    <div class="pkg-col-header"><div class="pkg-name">Premium</div><div class="pkg-price"><sup>€</sup>150</div><div class="pkg-days">14 days delivery</div></div>
+
+    <div class="pkg-cell label">Pages included</div>
+    <div class="pkg-cell center">1</div><div class="pkg-cell center active-col">5</div><div class="pkg-cell center">12+</div>
+
+    <div class="pkg-cell label">SEO Setup</div>
+    <div class="pkg-cell center"><span class="check">✓</span></div><div class="pkg-cell center active-col"><span class="check">✓</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">Contact / Quote Form</div>
+    <div class="pkg-cell center"><span class="check">✓</span></div><div class="pkg-cell center active-col"><span class="check">✓</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">Product Catalog</div>
+    <div class="pkg-cell center"><span class="cross">–</span></div><div class="pkg-cell center active-col"><span class="check">✓</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">Blog Section</div>
+    <div class="pkg-cell center"><span class="cross">–</span></div><div class="pkg-cell center active-col"><span class="cross">–</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">GDPR Pages</div>
+    <div class="pkg-cell center"><span class="cross">–</span></div><div class="pkg-cell center active-col"><span class="check">✓</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">Google Maps</div>
+    <div class="pkg-cell center"><span class="cross">–</span></div><div class="pkg-cell center active-col"><span class="check">✓</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">Calculator Tool</div>
+    <div class="pkg-cell center"><span class="cross">–</span></div><div class="pkg-cell center active-col"><span class="cross">–</span></div><div class="pkg-cell center"><span class="check">✓</span></div>
+
+    <div class="pkg-cell label">Revisions</div>
+    <div class="pkg-cell center">2</div><div class="pkg-cell center active-col">3</div><div class="pkg-cell center">5</div>
+  </div>
+  <div class="pkg-btn-row">
+    <div></div>
+    <div class="pkg-btn outline">Select Basic</div>
+    <div class="pkg-btn primary">Select Standard</div>
+    <div class="pkg-btn outline">Select Premium</div>
+  </div>
+</div>
+
+<!-- DESCRIPTION -->
+<div class="desc-card">
+  <div class="desc-header">📋 Gig Description — Key Points</div>
+  <div class="desc-body">
+    <div class="desc-section">
+      <h3>What You Get</h3>
+      <div class="desc-item"><span class="desc-icon">⚡</span><span class="desc-text">Multi-page HTML/CSS/JS — no page builders, no WordPress</span></div>
+      <div class="desc-item"><span class="desc-icon">⚡</span><span class="desc-text">Full SEO: meta tags, Open Graph, Twitter Cards, sitemap</span></div>
+      <div class="desc-item"><span class="desc-icon">⚡</span><span class="desc-text">Mobile responsive, tested on all screen sizes</span></div>
+      <div class="desc-item"><span class="desc-icon">⚡</span><span class="desc-text">WhatsApp CTA, Google Maps, file upload form</span></div>
+      <div class="desc-item"><span class="desc-icon">⚡</span><span class="desc-text">GDPR compliant: cookies, privacy, terms pages</span></div>
+      <div class="desc-item"><span class="desc-icon">⚡</span><span class="desc-text">Free hosting via GitHub Pages or ZIP delivery</span></div>
+    </div>
+    <div class="desc-section">
+      <h3>Perfect For</h3>
+      <div class="desc-item"><span class="desc-icon">→</span><span class="desc-text">Electricians & electrical contractors</span></div>
+      <div class="desc-item"><span class="desc-icon">→</span><span class="desc-text">Material & equipment distributors</span></div>
+      <div class="desc-item"><span class="desc-icon">→</span><span class="desc-text">Construction companies & installers</span></div>
+      <div class="desc-item"><span class="desc-icon">→</span><span class="desc-text">B2B suppliers needing fast online presence</span></div>
+      <div class="desc-item"><span class="desc-icon">→</span><span class="desc-text">Industrial & commercial businesses</span></div>
+      <div class="desc-item"><span class="desc-icon">→</span><span class="desc-text">Any SME needing a clean professional website</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-label">gabiteam44 · Fiverr Gig Preview · 2026</div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Tehnic Electric — Ghiduri & Sfaturi | Volta Electric Slatina</title>
+  <meta name="description" content="Ghiduri tehnice practice: cum alegi cablul electric, disjunctor vs siguranță, calculator LED. Articole scrise de specialiștii Volta Electric Slatina pentru instalatori și electricieni." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Volta Electric SRL" />
+  <meta property="og:url" content="https://www.voltaelectric.ro/blog" />
+  <meta property="og:title" content="Blog Tehnic — Ghiduri practice pentru electricieni | Volta Electric" />
+  <meta property="og:description" content="Articole tehnice gratuite: selecție cabluri, protecție electrică, migrare LED. De la specialiștii Volta Electric Slatina." />
+  <meta property="og:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog Tehnic Electric — Volta Electric" />
+  <meta name="twitter:description" content="Ghiduri practice pentru electricieni și instalatori." />
+  <meta name="twitter:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+        <meta name="theme-color" content="#1A1A2E" />
+  <link rel="canonical" href="https://www.voltaelectric.ro/blog" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+/* BLOG LAYOUT */
+    .blog-layout { max-width: 1200px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+
+    /* ARTICOLE */
+    .article-featured {
+      border-radius: 20px; overflow: hidden; border: 1.5px solid #E8E8E8;
+      margin-bottom: 32px; transition: all .25s;
+      text-decoration: none; color: var(--text); display: block;
+    }
+    .article-featured:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-3px); }
+    .article-featured .img { background: linear-gradient(135deg, var(--dark) 0%, #0f3460 100%); height: 240px; display: flex; align-items: center; justify-content: center; font-size: 80px; position: relative; }
+    .article-featured .img .tag { position: absolute; top: 20px; left: 20px; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+    .article-featured .body { padding: 28px; }
+    .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 12px; font-size: 13px; color: var(--gray-mid); }
+    .article-meta .cat { color: var(--yellow); font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+    .article-featured h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+    .article-featured p { font-size: 15px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 16px; }
+    .read-more { color: var(--yellow); font-weight: 700; font-size: 14px; }
+
+    .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .article-card { border-radius: 16px; border: 1.5px solid #E8E8E8; overflow: hidden; transition: all .25s; text-decoration: none; color: var(--text); display: flex; flex-direction: column; }
+    .article-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); transform: translateY(-3px); border-color: var(--yellow); }
+    .article-card .img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 52px; position: relative; }
+    .article-card .img.blue { background: linear-gradient(135deg, #0f3460, #1a1a2e); }
+    .article-card .img.green { background: linear-gradient(135deg, #1b4332, #2d6a4f); }
+    .article-card .img .tag { position: absolute; top: 12px; left: 12px; background: var(--yellow); color: var(--dark); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+    .article-card .body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .article-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; line-height: 1.25; }
+    .article-card p { font-size: 13px; color: var(--gray-mid); line-height: 1.6; flex: 1; }
+    .article-card .meta { font-size: 12px; color: var(--gray-mid); margin-top: 12px; padding-top: 12px; border-top: 1px solid #F0F0F0; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-card { background: var(--white); border: 1.5px solid #E8E8E8; border-radius: 16px; padding: 22px; }
+    .sidebar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--dark); margin-bottom: 14px; border-bottom: 2px solid var(--yellow); padding-bottom: 8px; }
+    .topic-tag { display: inline-block; background: var(--gray-light); border-radius: 20px; padding: 6px 14px; font-size: 13px; font-weight: 500; margin: 4px; cursor: pointer; transition: all .2s; text-decoration: none; color: var(--text); }
+    .topic-tag:hover { background: var(--yellow); color: var(--dark); }
+    .recent-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #F0F0F0; text-decoration: none; color: var(--text); transition: color .2s; }
+    .recent-item:last-child { border-bottom: none; }
+    .recent-item:hover { color: var(--yellow); }
+    .recent-icon { font-size: 24px; flex-shrink: 0; }
+    .recent-item p { font-size: 13px; font-weight: 600; line-height: 1.4; }
+    .recent-item span { font-size: 12px; color: var(--gray-mid); }
+    .cta-sidebar { background: linear-gradient(135deg, var(--dark), #0f3460); border-radius: 16px; padding: 24px; text-align: center; color: var(--white); }
+    .cta-sidebar h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cta-sidebar p { font-size: 13px; color: #8899aa; margin-bottom: 16px; line-height: 1.6; }
+    .btn-yellow-sm { display: block; background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 14px; padding: 12px; border-radius: 10px; text-decoration: none; transition: background .2s; }
+    .btn-yellow-sm:hover { background: var(--yellow-dark); }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    @media (max-width: 900px) { .blog-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Sari la conținut principal</a>
+
+<header>
+  <div class="header-top">
+    <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
+    <nav aria-label="Navigare principală">
+      <a href="produse.html">Produse</a>
+      <a href="branduri.html">Branduri</a>
+      <a href="proiecte.html">Proiecte</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn-header">Solicită ofertă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Acasă</a><span>›</span> <strong>Blog Tehnic</strong></div>
+    <h1>Ghiduri tehnice & <em>sfaturi practice</em></h1>
+    <p>Articole scrise de specialiștii Volta Electric pentru instalatori, electricieni și investitori în construcții.</p>
+  </div>
+</div>
+
+<div class="blog-layout">
+  <main id="main-content">
+
+    <!-- ARTICOL FEATURED -->
+    <a href="articol-1.html" class="article-featured">
+      <div class="img">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-zap"></use></svg>
+        <span class="tag">Ghid complet</span>
+      </div>
+      <div class="body">
+        <div class="article-meta">
+          <span class="cat">Cabluri & Conductori</span>
+          <span><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg> Mai 2026</span>
+          <span>⏱ 8 min citire</span>
+        </div>
+        <h2>Cum alegi cablul electric potrivit pentru instalația ta?</h2>
+        <p>Secțiunea cablului, tipul izolației, numărul de conductoare — alegerea greșită poate însemna supraîncălzire, risc de incendiu sau pierderi de energie. Acest ghid complet explică pas cu pas cum selectezi cablul corect pentru orice tip de instalație: rezidențială, comercială sau industrială.</p>
+        <span class="read-more">Citește articolul complet →</span>
+      </div>
+    </a>
+
+    <!-- GRID 2 ARTICOLE -->
+    <div class="articles-grid">
+      <a href="articol-2.html" class="article-card">
+        <div class="img blue">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>
+          <span class="tag">Siguranță</span>
+        </div>
+        <div class="body">
+          <div class="article-meta" style="margin-bottom:8px"><span class="cat" style="color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase">Protecție electrică</span></div>
+          <h3>Disjunctor vs. Siguranță fuzibilă — ce alegi în 2026?</h3>
+          <p>Diferențele tehnice, avantajele și dezavantajele fiecărei soluții de protecție. Când să folosești fiecare și de ce normativele moderne favorizează disjunctoarele.</p>
+          <div class="meta"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg> Aprilie 2026 &nbsp;·&nbsp; ⏱ 5 min</div>
+        </div>
+      </a>
+
+      <a href="articol-3.html" class="article-card">
+        <div class="img green">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg>
+          <span class="tag">Economie energie</span>
+        </div>
+        <div class="body">
+          <div class="article-meta" style="margin-bottom:8px"><span class="cat" style="color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase">Iluminat LED</span></div>
+          <h3>Migrarea la LED: cât economisești și cum calculezi rentabilitatea</h3>
+          <p>Analiza completă a costurilor de înlocuire vs. economii pe termen lung. Calculatorul de rentabilitate și care soluții LED sunt potrivite pentru hale, birouri și locuințe.</p>
+          <div class="meta"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calendar"></use></svg> Martie 2026 &nbsp;·&nbsp; ⏱ 6 min</div>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Subiecte populare</div>
+      <a class="topic-tag" href="#">Cabluri NYY</a>
+      <a class="topic-tag" href="#">Disjunctoare</a>
+      <a class="topic-tag" href="#">LED industrial</a>
+      <a class="topic-tag" href="#">Tablouri electrice</a>
+      <a class="topic-tag" href="#">Automatizare</a>
+      <a class="topic-tag" href="#">Joasă tensiune</a>
+      <a class="topic-tag" href="#">Protecție IP</a>
+      <a class="topic-tag" href="#">Norme electrice</a>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Articole recente</div>
+      <a class="recent-item" href="articol-1.html">
+        <span class="recent-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-zap"></use></svg></span>
+        <div><p>Cum alegi cablul electric potrivit</p><span>Mai 2026</span></div>
+      </a>
+      <a class="recent-item" href="articol-2.html">
+        <span class="recent-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg></span>
+        <div><p>Disjunctor vs. Siguranță fuzibilă</p><span>Aprilie 2026</span></div>
+      </a>
+      <a class="recent-item" href="articol-3.html">
+        <span class="recent-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg></span>
+        <div><p>Migrarea la LED: calcul rentabilitate</p><span>Martie 2026</span></div>
+      </a>
+    </div>
+
+    <div class="cta-sidebar">
+      <h4>Ai nevoie de o ofertă?</h4>
+      <p>Trimite-ne lista de materiale și îți răspundem în aceeași zi lucrătoare.</p>
+      <a href="contact.html" class="btn-yellow-sm"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> Solicită ofertă gratuită</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
+      <p>Furnizor de top in echipamente si materiale electrice, cu peste 20 de ani de experienta. Doua locatii: Slatina si Bucuresti.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/40724702632" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-message-circle"></use></svg></a>
+        <a href="mailto:office@voltaelectric.ro" aria-label="Email"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></a>
+        <a href="tel:+40724702632" aria-label="Telefon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Produse</h5>
+      <a href="produse.html">Cabluri &amp; Conductori</a>
+      <a href="produse.html">Tablouri Electrice</a>
+      <a href="produse.html">Aparataj Modular</a>
+      <a href="produse.html">Iluminat LED</a>
+      <a href="produse.html">Prize &amp; Intrerupatoare</a>
+    </div>
+    <div class="footer-col">
+      <h5>Companie</h5>
+      <a href="index.html">Despre noi</a>
+      <a href="branduri.html">Branduri</a>
+      <a href="proiecte.html">Proiecte</a>
+      <a href="blog.html">Blog tehnic</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="footer-contact"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">SLATINA</strong></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg> Piata Garii nr. 8, Bl. 9, Olt</div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> <a href="tel:+40724702632">0724 702 632</a></div>
+      <div class="footer-contact" style="margin-top:10px"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">BUCURESTI</strong></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg> Splaiul Unirii 160, Sector 4</div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> <a href="tel:+40723038449">0723 038 449</a></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> <a href="mailto:office@voltaelectric.ro">office@voltaelectric.ro</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Volta Electric SRL &mdash; Slatina, Olt. Toate drepturile rezervate.</span>
+    <span>
+      <a href="politica-cookies.html">Politica de cookies</a>
+      &nbsp;&middot;&nbsp;
+      <a href="politica-confidentialitate.html">Confidentialitate</a>
+      &nbsp;&middot;&nbsp;
+      <a href="termeni-conditii.html">Termeni</a>
+    </span>
+  </div>
+</footer>
+
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-message-circle"></use></svg></a>
+
+<script src="icons.js" defer></script>
+<script src="call-btn.js" defer></script>
+<script src="back-to-top.js" defer></script>
+<script src="scroll-animations.js?v=2" defer></script>
+<script src="mobile-nav.js" defer></script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>

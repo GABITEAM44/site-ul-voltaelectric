@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator Necesar Materiale Electrice Gratuit — Volta Electric Slatina</title>
+  <meta name="description" content="Calculator gratuit pentru estimarea materialelor electrice: cabluri, prize, disjunctoare, LED. Introdu suprafața și obții lista completă în 3 pași. Oferit de Volta Electric Slatina." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Volta Electric SRL" />
+  <meta property="og:url" content="https://www.voltaelectric.ro/calculator" />
+  <meta property="og:title" content="Calculator Materiale Electrice Gratuit — Volta Electric" />
+  <meta property="og:description" content="Estimează necesarul de cabluri, prize, disjunctoare și LED pentru apartament, casă, birou sau hală. Gratuit, în 3 pași simpli." />
+  <meta property="og:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calculator Materiale Electrice — Volta Electric" />
+  <meta name="twitter:description" content="Estimează necesarul de materiale electrice gratuit, în 3 pași." />
+  <meta name="twitter:image" content="https://www.voltaelectric.ro/og-image.jpg" />
+        <meta name="theme-color" content="#1A1A2E" />
+  <link rel="canonical" href="https://www.voltaelectric.ro/calculator" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+/* CALCULATOR LAYOUT */
+    .calc-layout { max-width: 1000px; margin: 40px auto 60px; padding: 0 24px; display: grid; grid-template-columns: 1fr 340px; gap: 28px; align-items: start; }
+
+    /* STEPPER */
+    .stepper { display: flex; align-items: center; gap: 0; margin-bottom: 28px; }
+    .step { display: flex; align-items: center; gap: 10px; flex: 1; }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: #E0E0E0; color: var(--gray-mid); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .3s; }
+    .step.active .step-num { background: var(--yellow); color: var(--dark); }
+    .step.done .step-num { background: #4CAF50; color: white; }
+    .step-label { font-size: 13px; font-weight: 600; color: var(--gray-mid); white-space: nowrap; }
+    .step.active .step-label { color: var(--dark); }
+    .step.done .step-label { color: #4CAF50; }
+    .step-line { flex: 1; height: 2px; background: #E0E0E0; margin: 0 8px; }
+    .step-line.done { background: #4CAF50; }
+
+    /* CARD CALCULATOR */
+    .calc-card { background: var(--white); border-radius: 20px; padding: 36px; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .calc-section { display: none; }
+    .calc-section.active { display: block; }
+    .calc-section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .calc-section-sub { font-size: 14px; color: var(--gray-mid); margin-bottom: 28px; }
+
+    /* TIP SPATIU */
+    .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+    .type-card { border: 2px solid #E0E0E0; border-radius: 14px; padding: 20px 16px; text-align: center; cursor: pointer; transition: all .2s; }
+    .type-card:hover { border-color: var(--yellow); background: #FFFBEA; }
+    .type-card.selected { border-color: var(--yellow); background: #FFFBEA; }
+    .type-card .icon { font-size: 36px; margin-bottom: 8px; }
+    .type-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .type-card p { font-size: 12px; color: var(--gray-mid); }
+
+    /* FORM FIELDS */
+    .fields-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .field input, .field select {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid #E0E0E0; border-radius: 10px;
+      font-size: 15px; font-family: 'Inter', sans-serif;
+      outline: none; transition: border .2s; background: var(--white);
+    }
+    .field input:focus, .field select:focus { border-color: var(--yellow); }
+    .field .hint { font-size: 12px; color: var(--gray-mid); margin-top: 4px; }
+
+    /* CHECKBOXES OPTIUNI */
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .option-check { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1.5px solid #E0E0E0; border-radius: 10px; cursor: pointer; transition: all .2s; }
+    .option-check:hover { border-color: var(--yellow); background: #FFFBEA; }
+    .option-check input[type=checkbox] { accent-color: var(--yellow); width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }
+    .option-check label { font-size: 14px; font-weight: 500; cursor: pointer; }
+
+    /* BUTOANE NAV */
+    .calc-.btn-prev { background: var(--gray-light); color: var(--text); border: none; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s; }
+    .btn-prev:hover { background: #E0E0E0; }
+    .btn-next { background: var(--yellow); color: var(--dark); border: none; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s; }
+    .btn-next:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+
+    /* REZULTAT */
+    .result-header { text-align: center; padding: 20px 0 28px; border-bottom: 2px solid var(--gray-light); margin-bottom: 28px; }
+    .result-header h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .result-header p { font-size: 14px; color: var(--gray-mid); }
+
+    .result-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    .result-table thead { background: var(--dark); color: var(--white); }
+    .result-table th { padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 700; }
+    .result-table td { padding: 11px 14px; border-bottom: 1px solid #EEE; font-size: 14px; }
+    .result-table tr:hover td { background: #FFFBEA; }
+    .result-table .cat-row td { background: var(--gray-light); font-weight: 700; font-size: 13px; color: var(--gray-mid); letter-spacing: 1px; text-transform: uppercase; }
+    .result-table .qty { font-weight: 700; color: var(--dark); }
+    .result-table .unit { color: var(--gray-mid); font-size: 12px; }
+
+    .result-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-print { background: var(--gray-light); color: var(--text); border: none; padding: 12px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s; }
+    .btn-print:hover { background: #E0E0E0; }
+    .btn-oferta { background: var(--yellow); color: var(--dark); text-decoration: none; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 700; transition: all .2s; display: inline-block; }
+    .btn-oferta:hover { background: var(--yellow-dark); }
+    .btn-reset { background: transparent; color: var(--gray-mid); border: none; padding: 12px; font-size: 14px; cursor: pointer; font-family: 'Inter', sans-serif; text-decoration: underline; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .info-card { background: var(--white); border-radius: 16px; padding: 22px; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+    .info-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--yellow); text-transform: uppercase; letter-spacing: 1px; }
+    .info-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #F5F5F5; }
+    .info-item:last-child { border-bottom: none; }
+    .info-item-icon { font-size: 20px; flex-shrink: 0; }
+    .info-item p { font-size: 13px; color: var(--gray-mid); line-height: 1.5; }
+    .info-item strong { color: var(--text); }
+    .cta-card { background: linear-gradient(135deg, var(--dark), #0f3460); border-radius: 16px; padding: 24px; color: var(--white); }
+    .cta-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .cta-card p { font-size: 13px; color: #8899aa; margin-bottom: 16px; line-height: 1.6; }
+    .btn-cta-yellow { display: block; background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 14px; padding: 12px; border-radius: 10px; text-decoration: none; text-align: center; transition: background .2s; }
+    .btn-cta-yellow:hover { background: var(--yellow-dark); }
+
+    @media (max-width: 900px) { .calc-layout { grid-template-columns: 1fr; } .type-grid { grid-template-columns: 1fr 1fr; } .options-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { nav a:not(.btn-header) { display: none; } .fields-grid { grid-template-columns: 1fr; } .type-grid { grid-template-columns: 1fr 1fr; } }
+
+    @media print {
+      header, .sidebar, .calc-nav, .result-actions, .whatsapp-btn, footer { display: none !important; }
+      body { background: white; }
+      .calc-layout { grid-template-columns: 1fr; }
+      .calc-card { box-shadow: none; border: 1px solid #ddd; }
+    }
+  
+    .footer-brand .footer-brand
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Sari la conținut principal</a>
+
+<header>
+  <div class="header-top">
+    <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
+    <nav aria-label="Navigare principală">
+      <a href="produse.html">Produse</a>
+      <a href="proiecte.html">Proiecte</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn-header">Solicită ofertă</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Acasă</a><span>›</span><strong>Calculator materiale</strong></div>
+    <h1><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calculator"></use></svg> Calculator <em>necesar materiale</em></h1>
+    <p>Estimează rapid cantitățile de materiale electrice necesare proiectului tău — gratuit, în 3 pași simpli.</p>
+  </div>
+</div>
+
+<div class="calc-layout">
+  <div>
+    <!-- STEPPER -->
+    <div class="stepper" id="stepper">
+      <div class="step active" id="st1"><div class="step-num">1</div><div class="step-label">Tip spațiu</div></div>
+      <div class="step-line" id="sl1"></div>
+      <div class="step" id="st2"><div class="step-num">2</div><div class="step-label">Date spațiu</div></div>
+      <div class="step-line" id="sl2"></div>
+      <div class="step" id="st3"><div class="step-num">3</div><div class="step-label">Rezultat</div></div>
+    </div>
+
+    <!-- CARD CALCULATOR -->
+    <div class="calc-card">
+
+      <!-- PASUL 1: TIP SPATIU -->
+      <div class="calc-section active" id="step1">
+        <div class="calc-section-title">Ce tip de spațiu dorești să echipezi?</div>
+        <div class="calc-section-sub">Selectează tipul pentru a personaliza calculul</div>
+        <div class="type-grid">
+          <div class="type-card" onclick="selectType('apartament', this)">
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg></div>
+            <h4>Apartament</h4>
+            <p>1–4 camere, instalație standard</p>
+          </div>
+          <div class="type-card" onclick="selectType('casa', this)">
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg></div>
+            <h4>Casă / Vilă</h4>
+            <p>Parter + etaj, instalație completă</p>
+          </div>
+          <div class="type-card" onclick="selectType('birou', this)">
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-building"></use></svg></div>
+            <h4>Birou / Spațiu comercial</h4>
+            <p>Open space sau celular</p>
+          </div>
+          <div class="type-card" onclick="selectType('hala', this)">
+            <div class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-factory"></use></svg></div>
+            <h4>Hală / Depozit</h4>
+            <p>Industrial, suprafețe mari</p>
+          </div>
+        </div>
+        <div class="calc-nav">
+          <span></span>
+          <button class="btn-next" onclick="goStep(2)">Continuă →</button>
+        </div>
+      </div>
+
+      <!-- PASUL 2: DATE SPATIU -->
+      <div class="calc-section" id="step2">
+        <div class="calc-section-title" id="step2Title">Date despre spațiu</div>
+        <div class="calc-section-sub">Completează detaliile pentru un calcul precis</div>
+
+        <div class="fields-grid">
+          <div class="field">
+            <label for="suprafata">Suprafața totală (mp) *</label>
+            <input type="number" id="suprafata" placeholder="ex: 85" min="10" />
+            <div class="hint">Suprafața utilă a spațiului</div>
+          </div>
+          <div class="field">
+            <label for="camere">Număr camere / zone *</label>
+            <input type="number" id="camere" placeholder="ex: 4" min="1" />
+            <div class="hint">Inclusiv baie, bucătărie, hol</div>
+          </div>
+          <div class="field">
+            <label for="inaltime">Înălțime tavan (m)</label>
+            <select id="inaltime">
+              <option value="2.6">Standard — 2,6m</option>
+              <option value="3.0">Înalt — 3,0m</option>
+              <option value="4.0">Industrial — 4m</option>
+              <option value="6.0">Industrial — 6m</option>
+              <option value="8.0">Industrial — 8m</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tipInst">Tip instalație</label>
+            <select id="tipInst">
+              <option value="nou">Instalație nouă</option>
+              <option value="renovare">Renovare completă</option>
+              <option value="partial">Extindere parțială</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-section-sub" style="margin-bottom:14px">Ce dorești să incluzi în calcul?</div>
+        <div class="options-grid">
+          <label class="option-check"><input type="checkbox" id="optCablu" checked /><label for="optCablu"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cable"></use></svg> Cabluri & conductori</label></label>
+          <label class="option-check"><input type="checkbox" id="optPrize" checked /><label for="optPrize"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg> Prize & întrerupătoare</label></label>
+          <label class="option-check"><input type="checkbox" id="optTableau" checked /><label for="optTableau"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-settings"></use></svg> Tablou electric</label></label>
+          <label class="option-check"><input type="checkbox" id="optLed" checked /><label for="optLed"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg> Iluminat LED</label></label>
+          <label class="option-check"><input type="checkbox" id="optTuburi" /><label for="optTuburi"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-package"></use></svg> Tuburi & jgheaburi</label></label>
+          <label class="option-check"><input type="checkbox" id="optProtectie" /><label for="optProtectie"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg> Protecție diferențială</label></label>
+        </div>
+
+        <div class="calc-nav">
+          <button class="btn-prev" onclick="goStep(1)">← Înapoi</button>
+          <button class="btn-next" onclick="calculeaza()">Calculează →</button>
+        </div>
+      </div>
+
+      <!-- PASUL 3: REZULTAT -->
+      <div class="calc-section" id="step3">
+        <div class="result-header">
+          <h3><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check-circle"></use></svg> Estimare necesar materiale</h3>
+          <p id="resultSubtitle">Calcul orientativ — valorile pot varia în funcție de configurația exactă</p>
+        </div>
+
+        <table class="result-table" id="resultTable">
+          <thead><tr><th>Material</th><th>Cantitate estimată</th><th>Unitate</th><th>Notă</th></tr></thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+
+        <div class="result-actions">
+          <button class="btn-print" onclick="window.print()"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-printer"></use></svg> Printează / Salvează PDF</button>
+          <a href="contact.html" class="btn-oferta"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> Solicită ofertă pentru această listă</a>
+          <button class="btn-reset" onclick="goStep(1);resetCalc()">↺ Calcul nou</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="info-card">
+      <div class="info-card-title">Cum funcționează</div>
+      <div class="info-item">
+        <span class="info-item-icon">1️⃣</span>
+        <p><strong>Alege tipul spațiului</strong> — apartament, casă, birou sau hală industrială</p>
+      </div>
+      <div class="info-item">
+        <span class="info-item-icon">2️⃣</span>
+        <p><strong>Introduce datele</strong> — suprafață, camere, înălțime, ce vrei să incluzi</p>
+      </div>
+      <div class="info-item">
+        <span class="info-item-icon">3️⃣</span>
+        <p><strong>Obții lista</strong> — cantități estimate pe categorii, gata de printat sau trimis</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">Atenție</div>
+      <div class="info-item">
+        <span class="info-item-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-alert-triangle"></use></svg></span>
+        <p>Calculul este <strong>orientativ</strong> și se bazează pe medii statistice. Cantitățile exacte se stabilesc cu proiectantul electric autorizat.</p>
+      </div>
+      <div class="info-item">
+        <span class="info-item-icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-ruler"></use></svg></span>
+        <p>Pentru proiecte complexe recomandăm o <strong>consultanță tehnică gratuită</strong> cu echipa noastră.</p>
+      </div>
+    </div>
+
+    <div class="cta-card">
+      <h4>Ai nevoie de ofertă exactă?</h4>
+      <p>Trimite-ne planul de arhitectură sau lista de la proiectant și îți facem oferta în 24h.</p>
+      <a href="contact.html" class="btn-cta-yellow"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> Solicită ofertă</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">VOLTA<span>ELECTRIC</span></a>
+      <p>Furnizor de top in echipamente si materiale electrice, cu peste 20 de ani de experienta. Doua locatii: Slatina si Bucuresti.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/40724702632" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-message-circle"></use></svg></a>
+        <a href="mailto:office@voltaelectric.ro" aria-label="Email"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg></a>
+        <a href="tel:+40724702632" aria-label="Telefon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Produse</h5>
+      <a href="produse.html">Cabluri &amp; Conductori</a>
+      <a href="produse.html">Tablouri Electrice</a>
+      <a href="produse.html">Aparataj Modular</a>
+      <a href="produse.html">Iluminat LED</a>
+      <a href="produse.html">Prize &amp; Intrerupatoare</a>
+    </div>
+    <div class="footer-col">
+      <h5>Companie</h5>
+      <a href="index.html">Despre noi</a>
+      <a href="branduri.html">Branduri</a>
+      <a href="proiecte.html">Proiecte</a>
+      <a href="blog.html">Blog tehnic</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <div class="footer-contact"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">SLATINA</strong></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg> Piata Garii nr. 8, Bl. 9, Olt</div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> <a href="tel:+40724702632">0724 702 632</a></div>
+      <div class="footer-contact" style="margin-top:10px"><strong style="font-size:11px;letter-spacing:1px;color:var(--yellow)">BUCURESTI</strong></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-map-pin"></use></svg> Splaiul Unirii 160, Sector 4</div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> <a href="tel:+40723038449">0723 038 449</a></div>
+      <div class="footer-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> <a href="mailto:office@voltaelectric.ro">office@voltaelectric.ro</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Volta Electric SRL &mdash; Slatina, Olt. Toate drepturile rezervate.</span>
+    <span>
+      <a href="politica-cookies.html">Politica de cookies</a>
+      &nbsp;&middot;&nbsp;
+      <a href="politica-confidentialitate.html">Confidentialitate</a>
+      &nbsp;&middot;&nbsp;
+      <a href="termeni-conditii.html">Termeni</a>
+    </span>
+  </div>
+</footer>
+<a href="https://wa.me/40724702632" class="whatsapp-btn" target="_blank" aria-label="Contactează-ne pe WhatsApp"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-message-circle"></use></svg></a>
+
+<script>
+let selectedType = '';
+
+function selectType(type, el) {
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedType = type;
+
+  const titles = { apartament:'Apartament', casa:'Casă / Vilă', birou:'Birou / Spațiu comercial', hala:'Hală / Depozit' };
+  const defaults = {
+    apartament: { sup:75, cam:4, h:'2.6' },
+    casa:       { sup:150, cam:7, h:'2.6' },
+    birou:      { sup:120, cam:5, h:'3.0' },
+    hala:       { sup:500, cam:3, h:'6.0' }
+  };
+  const d = defaults[type] || {};
+  document.getElementById('suprafata').value = d.sup;
+  document.getElementById('camere').value = d.cam;
+  document.getElementById('inaltime').value = d.h;
+  document.getElementById('step2Title').textContent = 'Date despre ' + titles[type];
+}
+
+function goStep(n) {
+  if (n === 2 && !selectedType) { alert('Te rugăm să selectezi tipul de spațiu.'); return; }
+  [1,2,3].forEach(i => {
+    document.getElementById('step'+i).classList.toggle('active', i===n);
+    const st = document.getElementById('st'+i);
+    st.classList.remove('active','done');
+    if (i < n) st.classList.add('done');
+    else if (i === n) st.classList.add('active');
+    if (i < 3) {
+      document.getElementById('sl'+i).classList.toggle('done', i < n);
+    }
+  });
+  document.getElementById('st'+n).querySelector('.step-num').textContent = n < 3 ? n : '✓';
+}
+
+function resetCalc() {
+  selectedType = '';
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('suprafata').value = '';
+  document.getElementById('camere').value = '';
+  [1,2,3].forEach(i => {
+    const st = document.getElementById('st'+i);
+    st.classList.remove('active','done');
+    if (i===1) st.classList.add('active');
+    st.querySelector('.step-num').textContent = i;
+  });
+  document.getElementById('sl1').classList.remove('done');
+  document.getElementById('sl2').classList.remove('done');
+}
+
+function calculeaza() {
+  const sup = parseFloat(document.getElementById('suprafata').value) || 80;
+  const cam = parseInt(document.getElementById('camere').value) || 4;
+  const tip = selectedType || 'apartament';
+  const optCablu = document.getElementById('optCablu').checked;
+  const optPrize = document.getElementById('optPrize').checked;
+  const optTableau = document.getElementById('optTableau').checked;
+  const optLed = document.getElementById('optLed').checked;
+  const optTuburi = document.getElementById('optTuburi').checked;
+  const optProtectie = document.getElementById('optProtectie').checked;
+
+  // Coeficienti per tip spatiu
+  const coef = {
+    apartament: { cablu15: 2.5, cablu25: 1.8, prize: 5, intrerupatoare: 2, disjunctoare: 8, led: 3, tub: 2.2 },
+    casa:       { cablu15: 3.2, cablu25: 2.4, prize: 6, intrerupatoare: 2.5, disjunctoare: 12, led: 4, tub: 3 },
+    birou:      { cablu15: 2.0, cablu25: 2.2, prize: 8, intrerupatoare: 1.5, disjunctoare: 10, led: 5, tub: 2.8 },
+    hala:       { cablu15: 0.5, cablu25: 1.5, prize: 2, intrerupatoare: 0.5, disjunctoare: 6, led: 1.2, tub: 4 }
+  };
+  const c = coef[tip];
+
+  const rows = [];
+
+  if (optCablu) {
+    rows.push({ cat: true, label: 'CABLURI & CONDUCTORI', qty: '', unit: '', note: '' });
+    rows.push({ label: 'Cablu NYY-J 3×1,5mm² (circuit lumini)', qty: Math.round(sup * c.cablu15 * 1.15), unit: 'ml', note: '+15% pierderi' });
+    rows.push({ label: 'Cablu NYY-J 3×2,5mm² (circuit prize)', qty: Math.round(sup * c.cablu25 * 1.15), unit: 'ml', note: '+15% pierderi' });
+    if (tip === 'hala' || tip === 'casa') {
+      rows.push({ label: 'Cablu NYY-J 4×6mm² (circuit forță)', qty: Math.round(sup * 0.3), unit: 'ml', note: 'Forță / centrală termică' });
+    }
+  }
+
+  if (optPrize) {
+    rows.push({ cat: true, label: 'PRIZE & ÎNTRERUPĂTOARE', qty: '', unit: '', note: '' });
+    rows.push({ label: 'Priză simplă Schuko 16A', qty: Math.round(cam * c.prize * 0.7), unit: 'buc', note: 'Prize standard' });
+    rows.push({ label: 'Priză dublă Schuko 16A', qty: Math.round(cam * c.prize * 0.3), unit: 'buc', note: 'Zone cu consum ridicat' });
+    rows.push({ label: 'Întrerupător simplu', qty: Math.round(cam * c.intrerupatoare), unit: 'buc', note: 'Per cameră' });
+    rows.push({ label: 'Comutator (cap-scară)', qty: Math.round(cam * 0.5), unit: 'buc', note: 'Intrări, hol' });
+    if (tip === 'birou') {
+      rows.push({ label: 'Priză date (RJ45) / TV', qty: Math.round(cam * 3), unit: 'buc', note: 'Birou / punct de lucru' });
+    }
+  }
+
+  if (optTableau) {
+    rows.push({ cat: true, label: 'TABLOU ELECTRIC & APARATAJ', qty: '', unit: '', note: '' });
+    const nrDisj = Math.round(cam * c.disjunctoare / cam);
+    rows.push({ label: 'Disjunctor 1P 10A–16A (circuit lumini)', qty: cam, unit: 'buc', note: '1 per cameră' });
+    rows.push({ label: 'Disjunctor 1P 16A–20A (circuit prize)', qty: Math.round(cam * 1.2), unit: 'buc', note: 'Prize standard' });
+    rows.push({ label: tip === 'hala' ? 'Disjunctor 3P 32A (forță)' : 'Disjunctor 1P 25A (aparate mari)', qty: Math.round(cam * 0.4), unit: 'buc', note: 'Mașina de spălat, boiler etc.' });
+    rows.push({ label: 'Tablou electric (locuri)', qty: 1, unit: 'buc', note: Math.round(cam * 3 + 4) + ' locuri recomandate' });
+  }
+
+  if (optProtectie) {
+    rows.push({ cat: true, label: 'PROTECȚIE DIFERENȚIALĂ', qty: '', unit: '', note: '' });
+    rows.push({ label: 'Întrerupător diferențial 2P 25A/30mA', qty: Math.round(cam / 3) + 1, unit: 'buc', note: 'Grup de circuite' });
+    rows.push({ label: 'Descărcător supratensiune SPD', qty: 1, unit: 'buc', note: 'Protecție trăsnet' });
+  }
+
+  if (optLed) {
+    rows.push({ cat: true, label: 'ILUMINAT LED', qty: '', unit: '', note: '' });
+    const nrLed = Math.round(sup * c.led / 10);
+    if (tip === 'hala') {
+      rows.push({ label: 'Corp LED Highbay 100–200W', qty: Math.round(sup / 50), unit: 'buc', note: '~50mp per corp la 6m' });
+    } else {
+      rows.push({ label: 'Corp LED tavan (panou/spot)', qty: Math.round(cam * c.led), unit: 'buc', note: 'Zone principale' });
+      rows.push({ label: 'Corp LED baie (IP44)', qty: Math.round(cam * 0.3), unit: 'buc', note: 'Băi & bucătărie' });
+    }
+    rows.push({ label: 'Iluminat urgență / siguranță', qty: Math.max(1, Math.round(cam * 0.2)), unit: 'buc', note: 'Hol, ieșiri' });
+  }
+
+  if (optTuburi) {
+    rows.push({ cat: true, label: 'TUBURI & JGHEABURI', qty: '', unit: '', note: '' });
+    rows.push({ label: 'Tub flexibil PVC Ø20mm', qty: Math.round(sup * c.tub * 1.1), unit: 'ml', note: 'Circuite în tavan/podea' });
+    rows.push({ label: 'Doză derivație Ø60mm', qty: Math.round(cam * 3), unit: 'buc', note: 'Per circuit' });
+    if (tip === 'hala' || tip === 'birou') {
+      rows.push({ label: 'Jgheab cablu 60×40mm', qty: Math.round(sup * 0.3), unit: 'ml', note: 'Traseu principal' });
+    }
+  }
+
+  // Populate table
+  const tbody = document.getElementById('resultBody');
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    if (r.cat) {
+      tr.className = 'cat-row';
+      tr.innerHTML = `<td colspan="4">${r.label}</td>`;
+    } else {
+      tr.innerHTML = `<td>${r.label}</td><td class="qty">${r.qty}</td><td class="unit">${r.unit}</td><td style="font-size:12px;color:var(--gray-mid)">${r.note}</td>`;
+    }
+    tbody.appendChild(tr);
+  });
+
+  const typeNames = { apartament:'apartament', casa:'casă / vilă', birou:'birou', hala:'hală / depozit' };
+  document.getElementById('resultSubtitle').textContent =
+    `${typeNames[tip] || tip} · ${sup} mp · ${cam} camere/zone · Calcul orientativ`;
+
+  goStep(3);
+}
+</script>
+<script src="icons.js" defer></script>
+<script src="call-btn.js" defer></script>
+<script src="back-to-top.js" defer></script>
+<script src="scroll-animations.js?v=2" defer></script>
+<script src="mobile-nav.js" defer></script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+(function () {
+  'use strict';
+
+  /* Bara "SUNĂ ACUM" — vizibilă doar pe mobile (≤768px) */
+
+  var style = document.createElement('style');
+  style.textContent = [
+
+    /* ── Bara fixă jos ── */
+    '#call-bar {',
+      'display: none;',                        /* ascuns implicit */
+      'position: fixed;',
+      'bottom: 0; left: 0; right: 0;',
+      'z-index: 850;',
+      'padding: 10px 16px 14px;',             /* 14px jos pentru safe area iPhone */
+      'padding-bottom: calc(10px + env(safe-area-inset-bottom));',
+      'background: #1A1A2E;',
+      'border-top: 2px solid #F5C400;',
+      'box-shadow: 0 -4px 20px rgba(0,0,0,.35);',
+    '}',
+
+    /* ── Vizibil pe mobile ── */
+    '@media (max-width: 768px) {',
+      '#call-bar { display: block; }',
+      /* Ridica back-to-top si WhatsApp deasupra barei */
+      '#btt-btn { bottom: 88px !important; }',
+      '.whatsapp-btn { bottom: 88px !important; }',
+      /* Adauga spatiu la body ca bara sa nu acopere continut */
+      'body { padding-bottom: 76px; }',
+    '}',
+
+    /* ── Butonul propriu-zis ── */
+    '#call-btn {',
+      'display: flex;',
+      'align-items: center;',
+      'justify-content: center;',
+      'gap: 10px;',
+      'width: 100%;',
+      'padding: 13px 20px;',
+      'background: linear-gradient(135deg, #1eaf2b 0%, #16873a 100%);',
+      'color: #fff;',
+      'border: none;',
+      'border-radius: 12px;',
+      'text-decoration: none;',
+      'font-family: "Inter", sans-serif;',
+      'font-size: 16px;',
+      'font-weight: 700;',
+      'letter-spacing: .3px;',
+      'cursor: pointer;',
+      'transition: filter .2s;',
+      'box-shadow: 0 4px 16px rgba(30,175,43,.4);',
+      'animation: callPulse 2.4s ease-in-out infinite;',
+    '}',
+    '#call-btn:hover, #call-btn:active { filter: brightness(1.1); }',
+
+    /* ── Iconița telefon ── */
+    '#call-btn .call-ico {',
+      'width: 22px; height: 22px;',
+      'flex-shrink: 0;',
+      'animation: callRing 1.6s ease-in-out infinite;',
+    '}',
+
+    /* ── Textul ── */
+    '#call-btn .call-label { font-size: 17px; font-weight: 800; letter-spacing: .5px; }',
+    '#call-btn .call-num   { font-size: 14px; font-weight: 500; opacity: .9; }',
+    '#call-btn .call-arrow { font-size: 18px; margin-left: 4px; opacity: .8; }',
+
+    /* ── Animații ── */
+    '@keyframes callRing {',
+      '0%,100% { transform: rotate(0deg); }',
+      '10%      { transform: rotate(-15deg); }',
+      '20%      { transform: rotate(15deg); }',
+      '30%      { transform: rotate(-10deg); }',
+      '40%      { transform: rotate(10deg); }',
+      '50%      { transform: rotate(0deg); }',
+    '}',
+    '@keyframes callPulse {',
+      '0%,100% { box-shadow: 0 4px 16px rgba(30,175,43,.4); }',
+      '50%     { box-shadow: 0 4px 28px rgba(30,175,43,.7); }',
+    '}',
+
+    /* ── Reduce animatii la preferinta utilizator ── */
+    '@media (prefers-reduced-motion: reduce) {',
+      '#call-btn .call-ico { animation: none; }',
+      '#call-btn { animation: none; }',
+    '}',
+
+  ].join('');
+  document.head.appendChild(style);
+
+  function init() {
+    var bar = document.createElement('div');
+    bar.id = 'call-bar';
+    bar.innerHTML = [
+      '<a id="call-btn" href="tel:+40724702632" aria-label="Suna la Volta Electric: 0724 702 632">',
+        '<svg class="call-ico" fill="none" stroke="currentColor" stroke-width="2.2"',
+          ' stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"',
+          ' aria-hidden="true">',
+          '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07',
+            ' 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3',
+            'a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09',
+            ' 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0',
+            ' 2.81.7A2 2 0 0 1 22 16.92z"/>',
+        '</svg>',
+        '<span class="call-label">SUNĂ ACUM</span>',
+        '<span class="call-num">0724 702 632</span>',
+        '<span class="call-arrow">›</span>',
+      '</a>',
+    ].join('');
+
+    document.body.appendChild(bar);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
