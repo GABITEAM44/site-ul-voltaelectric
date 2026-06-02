@@ -87,7 +87,7 @@ nav a:hover, nav a.active { color: var(--yellow); background: rgba(245,196,0,.08
 
 /* ── FOOTER ── */
 footer { background: #0d0d1f; color: #8899aa; }
-.footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1); }
 .footer-brand .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
 .footer-brand .logo span { color: #F5C400; }
 .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; color: #667788; max-width: 240px; }
