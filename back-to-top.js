@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   var style = document.createElement('style');
@@ -11,9 +11,9 @@
       'width: 44px;',
       'height: 44px;',
       'border-radius: 50%;',
-      'background: #1A1A2E;',
-      'border: 2px solid #F5C400;',
-      'color: #F5C400;',
+      'background: var(--dark);',
+      'border: 2px solid var(--yellow);',
+      'color: var(--yellow);',
       'font-size: 20px;',
       'line-height: 1;',
       'cursor: pointer;',
@@ -32,8 +32,8 @@
       'pointer-events: all;',
     '}',
     '#btt-btn:hover {',
-      'background: #F5C400;',
-      'color: #1A1A2E;',
+      'background: var(--yellow);',
+      'color: var(--dark);',
     '}',
     /* Pe mobile e mai mic și mai jos față de WhatsApp */
     '@media (max-width: 600px) {',

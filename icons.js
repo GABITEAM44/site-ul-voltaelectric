@@ -72,7 +72,7 @@
   /* Construiește sprite-ul SVG ascuns */
   var symbols = '';
   for (var name in ICONS) {
-    if (ICONS.hasOwnProperty(name)) {
+    if (Object.hasOwn(ICONS, name)) {
       symbols += '<symbol id="i-' + name + '" viewBox="0 0 24 24">' + ICONS[name] + '</symbol>';
     }
   }

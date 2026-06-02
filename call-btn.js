@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   /* Bara "SUNĂ ACUM" — vizibilă doar pe mobile (≤768px) */
@@ -14,8 +14,8 @@
       'z-index: 850;',
       'padding: 10px 16px 14px;',             /* 14px jos pentru safe area iPhone */
       'padding-bottom: calc(10px + env(safe-area-inset-bottom));',
-      'background: #1A1A2E;',
-      'border-top: 2px solid #F5C400;',
+      'background: var(--dark);',
+      'border-top: 2px solid var(--yellow);',
       'box-shadow: 0 -4px 20px rgba(0,0,0,.35);',
     '}',
 

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   var style = document.createElement('style');
@@ -44,7 +44,7 @@
         'position: fixed;',
         'top: 70px;',
         'left: 0; right: 0;',
-        'background: #1A1A2E;',
+        'background: var(--dark);',
         'flex-direction: column;',
         'align-items: stretch;',
         'gap: 0;',
@@ -71,15 +71,15 @@
       'header nav a:last-child { border-bottom: none; }',
       'header nav a:hover, header nav a.active {',
         'background: rgba(245,196,0,.1) !important;',
-        'color: #F5C400 !important;',
+        'color: var(--yellow) !important;',
       '}',
       /* Butonul Solicită ofertă în mobil */
       'header nav a.btn-header {',
         'margin: 12px 20px 0 !important;',
         'text-align: center !important;',
         'border-radius: 10px !important;',
-        'background: #F5C400 !important;',
-        'color: #1A1A2E !important;',
+        'background: var(--yellow) !important;',
+        'color: var(--dark) !important;',
         'border-bottom: none !important;',
         'padding: 13px 20px !important;',
       '}',

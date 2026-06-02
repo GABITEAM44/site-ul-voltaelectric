@@ -100,6 +100,14 @@ footer { background: #0d0d1f; color: #8899aa; }
 .footer-contact { font-size: 13px; color: #667788; padding: 3px 0; line-height: 1.6; display: flex; align-items: center; gap: 6px; }
 .footer-contact a { color: #667788; text-decoration: none; }
 .footer-contact a:hover { color: #F5C400; }
+.footer-location { font-size: 11px; letter-spacing: 1px; color: var(--yellow); }
+.footer-location-gap { margin-top: 10px; }
+.mt-16 { margin-top: 16px; }
+.mt-32 { margin-top: 32px; }
+.mb-16 { margin-bottom: 16px; }
+#ctaConfirm { color: var(--dark); font-weight: 600; margin-top: 16px; }
+.btn-offer-inline { display: block; background: var(--yellow); color: var(--dark); text-align: center; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s; }
+.btn-offer-inline:hover { background: var(--yellow-dark); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #445566; font-family: 'Inter', sans-serif; }
 .footer-bottom a { color: #667788; text-decoration: none; }
 .footer-bottom a:hover { color: #F5C400; }

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   var COOKIE_KEY = 'volta_cookie_consent';
@@ -40,7 +40,7 @@
     style.textContent = [
       '#volta-cookie-banner{',
         'position:fixed;bottom:0;left:0;right:0;z-index:9999;',
-        'background:#1A1A2E;color:#fff;',
+        'background:var(--dark);color:#fff;',
         'padding:20px 24px;',
         'display:flex;align-items:center;gap:20px;flex-wrap:wrap;',
         'box-shadow:0 -4px 24px rgba(0,0,0,.35);',
@@ -49,15 +49,15 @@
         'font-family:"Inter",sans-serif;font-size:14px;line-height:1.5;',
       '}',
       '#volta-cookie-banner .vck-text{flex:1;min-width:220px;}',
-      '#volta-cookie-banner .vck-text strong{color:#F5C400;font-size:15px;display:block;margin-bottom:4px;}',
-      '#volta-cookie-banner .vck-text a{color:#F5C400;text-decoration:underline;}',
+      '#volta-cookie-banner .vck-text strong{color:var(--yellow);font-size:15px;display:block;margin-bottom:4px;}',
+      '#volta-cookie-banner .vck-text a{color:var(--yellow);text-decoration:underline;}',
       '#volta-cookie-banner .vck-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;}',
       '#volta-cookie-banner .vck-btn{',
         'padding:10px 20px;border-radius:8px;border:none;cursor:pointer;',
         'font-size:14px;font-weight:600;font-family:inherit;transition:background .2s;',
         'white-space:nowrap;',
       '}',
-      '#volta-cookie-banner .vck-btn-all{background:#F5C400;color:#1A1A2E;}',
+      '#volta-cookie-banner .vck-btn-all{background:var(--yellow);color:var(--dark);}',
       '#volta-cookie-banner .vck-btn-all:hover{background:#e8b800;}',
       '#volta-cookie-banner .vck-btn-necessary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);}',
       '#volta-cookie-banner .vck-btn-necessary:hover{background:rgba(255,255,255,.08);}',
