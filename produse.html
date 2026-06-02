@@ -284,7 +284,7 @@
   <aside class="sidebar">
     <div class="sidebar-card">
       <div class="sidebar-title">Categorii</div>
-      <a class="cat-nav-item active" href="#cabluri"><span class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cable"></use></svg></span> Cabluri & Conductori</a>
+      <a class="cat-nav-item" href="#cabluri"><span class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cable"></use></svg></span> Cabluri & Conductori</a>
       <a class="cat-nav-item" href="#aparataj"><span class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-settings"></use></svg></span> Aparataj Electric</a>
       <a class="cat-nav-item" href="#iluminat"><span class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg></span> Iluminat</a>
       <a class="cat-nav-item" href="#protectie"><span class="icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg></span> Protecție & Automatizări</a>
@@ -728,5 +728,41 @@
 <script src="scroll-animations.min.js" defer></script>
 <script src="mobile-nav.min.js" defer></script>
 <script src="cookie-banner.min.js" defer></script>
+
+<script>
+/* Scroll-spy categorii — marcheaza activ cat-nav-item-ul corespunzator sectiunii vizibile */
+(function () {
+  var sections = document.querySelectorAll('.cat-section[id]');
+  var navLinks = document.querySelectorAll('.cat-nav-item');
+  if (!sections.length || !navLinks.length) return;
+
+  /* Click → activeaza imediat */
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.forEach(function (l) { l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+
+  /* Scroll → IntersectionObserver */
+  if (!('IntersectionObserver' in window)) {
+    navLinks[0].classList.add('active');
+    return;
+  }
+
+  var current = '';
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) current = entry.target.id;
+    });
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute('href').replace('#', '');
+      link.classList.toggle('active', href === current);
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(function (s) { io.observe(s); });
+})();
+</script>
 </body>
 </html>
