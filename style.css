@@ -803,15 +803,19 @@ picture { display: contents; }
 
     /* CANALE responsive */
     @media (max-width: 900px) {
-      .quick-channels[style] { grid-template-columns: repeat(2,1fr) !important; }
+      .quick-channels { grid-template-columns: repeat(2,1fr); }
     }
 
     @media (max-width: 768px) {
       .contact-layout { grid-template-columns: 1fr; }
-      .quick-channels { grid-template-columns: 1fr; }
+      .quick-channels { grid-template-columns: repeat(2,1fr); }
       .form-row { grid-template-columns: 1fr; }
       nav a:not(.btn-header) { display: none; }
       .form-card { padding: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .quick-channels { grid-template-columns: 1fr; }
     }
 
 /* --- faq --- */
@@ -1137,7 +1141,8 @@ picture { display: contents; }
     }
     .client-card-label .ico { width: 16px; height: 16px; color: var(--yellow); flex-shrink: 0; }
     @media (max-width: 900px) { .clients-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 560px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 380px) { .clients-grid { grid-template-columns: 1fr; } }
     .about-mission { display: flex; flex-direction: column; gap: 20px; }
     .mission-card {
       background: var(--white); border-radius: 18px;
@@ -1368,6 +1373,9 @@ picture { display: contents; }
       .catalog-layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
       nav a:not(.btn-header) { display: none; }
+      .products-header { flex-direction: column; align-items: stretch; }
+      .search-bar { max-width: 100%; }
+      .products-count { font-size: 13px; }
     }
 
 /* --- proiecte --- */
