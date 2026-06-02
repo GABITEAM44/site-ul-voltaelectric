@@ -1,47 +1,7 @@
 ﻿(function () {
   'use strict';
 
-  var style = document.createElement('style');
-  style.textContent = [
-    '#btt-btn {',
-      'position: fixed;',
-      'bottom: 90px;', /* deasupra butonului WhatsApp */
-      'right: 24px;',
-      'z-index: 900;',
-      'width: 44px;',
-      'height: 44px;',
-      'border-radius: 50%;',
-      'background: var(--dark);',
-      'border: 2px solid var(--yellow);',
-      'color: var(--yellow);',
-      'font-size: 20px;',
-      'line-height: 1;',
-      'cursor: pointer;',
-      'display: flex;',
-      'align-items: center;',
-      'justify-content: center;',
-      'box-shadow: 0 4px 16px rgba(0,0,0,.25);',
-      'opacity: 0;',
-      'transform: translateY(12px);',
-      'pointer-events: none;',
-      'transition: opacity .3s ease, transform .3s ease, background .2s;',
-    '}',
-    '#btt-btn.btt-visible {',
-      'opacity: 1;',
-      'transform: translateY(0);',
-      'pointer-events: all;',
-    '}',
-    '#btt-btn:hover {',
-      'background: var(--yellow);',
-      'color: var(--dark);',
-    '}',
-    /* Pe mobile e mai mic și mai jos față de WhatsApp */
-    '@media (max-width: 600px) {',
-      '#btt-btn { bottom: 84px; right: 16px; width: 40px; height: 40px; font-size: 18px; }',
-    '}'
-  ].join('');
-  document.head.appendChild(style);
-
+  /* Stilurile sunt in style.css */
   function init() {
     var btn = document.createElement('button');
     btn.id = 'btt-btn';

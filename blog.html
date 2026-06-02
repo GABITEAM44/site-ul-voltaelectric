@@ -23,58 +23,6 @@
   <link rel="stylesheet" href="style.min.css">
   <link rel="preload" href="fonts/inter-latin-w400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
-  <style>
-/* BLOG LAYOUT */
-    .blog-layout { max-width: 1200px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
-
-    /* ARTICOLE */
-    .article-featured {
-      border-radius: 20px; overflow: hidden; border: 1.5px solid #E8E8E8;
-      margin-bottom: 32px; transition: all .25s;
-      text-decoration: none; color: var(--text); display: block;
-    }
-    .article-featured:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-3px); }
-    .article-featured .img { background: linear-gradient(135deg, var(--dark) 0%, #0f3460 100%); height: 240px; display: flex; align-items: center; justify-content: center; font-size: 80px; position: relative; }
-    .article-featured .img .tag { position: absolute; top: 20px; left: 20px; background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
-    .article-featured .body { padding: 28px; }
-    .article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 12px; font-size: 13px; color: var(--gray-mid); }
-    .article-meta .cat { color: var(--yellow); font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
-    .article-featured h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
-    .article-featured p { font-size: 15px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 16px; }
-    .read-more { color: var(--yellow); font-weight: 700; font-size: 14px; }
-
-    .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .article-card { border-radius: 16px; border: 1.5px solid #E8E8E8; overflow: hidden; transition: all .25s; text-decoration: none; color: var(--text); display: flex; flex-direction: column; }
-    .article-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); transform: translateY(-3px); border-color: var(--yellow); }
-    .article-card .img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 52px; position: relative; }
-    .article-card .img.blue { background: linear-gradient(135deg, #0f3460, #1a1a2e); }
-    .article-card .img.green { background: linear-gradient(135deg, #1b4332, #2d6a4f); }
-    .article-card .img .tag { position: absolute; top: 12px; left: 12px; background: var(--yellow); color: var(--dark); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
-    .article-card .body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-    .article-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; line-height: 1.25; }
-    .article-card p { font-size: 13px; color: var(--gray-mid); line-height: 1.6; flex: 1; }
-    .article-card .meta { font-size: 12px; color: var(--gray-mid); margin-top: 12px; padding-top: 12px; border-top: 1px solid #F0F0F0; }
-
-    /* SIDEBAR */
-    .sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 20px; }
-    .sidebar-card { background: var(--white); border: 1.5px solid #E8E8E8; border-radius: 16px; padding: 22px; }
-    .sidebar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--dark); margin-bottom: 14px; border-bottom: 2px solid var(--yellow); padding-bottom: 8px; }
-    .topic-tag { display: inline-block; background: var(--gray-light); border-radius: 20px; padding: 6px 14px; font-size: 13px; font-weight: 500; margin: 4px; cursor: pointer; transition: all .2s; text-decoration: none; color: var(--text); }
-    .topic-tag:hover { background: var(--yellow); color: var(--dark); }
-    .recent-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #F0F0F0; text-decoration: none; color: var(--text); transition: color .2s; }
-    .recent-item:last-child { border-bottom: none; }
-    .recent-item:hover { color: var(--yellow); }
-    .recent-icon { font-size: 24px; flex-shrink: 0; }
-    .recent-item p { font-size: 13px; font-weight: 600; line-height: 1.4; }
-    .recent-item span { font-size: 12px; color: var(--gray-mid); }
-    .cta-sidebar { background: linear-gradient(135deg, var(--dark), #0f3460); border-radius: 16px; padding: 24px; text-align: center; color: var(--white); }
-    .cta-sidebar h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; }
-    .cta-sidebar p { font-size: 13px; color: #8899aa; margin-bottom: 16px; line-height: 1.6; }
-    .btn-yellow-sm { display: block; background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 14px; padding: 12px; border-radius: 10px; text-decoration: none; transition: background .2s; }
-    .btn-yellow-sm:hover { background: var(--yellow-dark); }
-
-    @media (max-width: 900px) { .blog-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .articles-grid { grid-template-columns: 1fr; } }
-  </style>
   <!-- Favicon -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="favicon.svg">

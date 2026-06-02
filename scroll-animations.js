@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   /* ============================================================
@@ -7,49 +7,7 @@
      Inspirat din metodologia EUROELECTRIC (Ghid v1.0 · 2026)
      ============================================================ */
 
-  var style = document.createElement('style');
-  style.textContent = [
-    /* ── Baza: fadeUp ── */
-    '.sa {',
-      'opacity:0; transform:translateY(28px);',
-      'transition:opacity .6s ease, transform .6s ease;',
-      'will-change:opacity,transform;',
-    '}',
-    '.sa.sa-visible { opacity:1; transform:translateY(0); }',
-
-    /* ── Slide stanga ── */
-    '.sa-left  { transform:translateX(-44px) translateY(0); }',
-    '.sa-left.sa-visible  { transform:translateX(0); }',
-
-    /* ── Slide dreapta ── */
-    '.sa-right { transform:translateX(44px) translateY(0); }',
-    '.sa-right.sa-visible { transform:translateX(0); }',
-
-    /* ── Scale pop (zoom usor + fadeIn) ── */
-    '.sa-scale { transform:scale(.88) translateY(0); opacity:0; }',
-    '.sa-scale.sa-visible { transform:scale(1); opacity:1; transition:opacity .5s ease, transform .5s cubic-bezier(.34,1.36,.64,1); }',
-
-    /* ── Zoom subtil (pentru carduri produs) ── */
-    '.sa-zoom { transform:scale(.94); opacity:0; }',
-    '.sa-zoom.sa-visible { transform:scale(1); opacity:1; }',
-
-    /* ── Delays cascada ── */
-    '.sa-d1 { transition-delay:.07s; }',
-    '.sa-d2 { transition-delay:.14s; }',
-    '.sa-d3 { transition-delay:.21s; }',
-    '.sa-d4 { transition-delay:.28s; }',
-    '.sa-d5 { transition-delay:.35s; }',
-    '.sa-d6 { transition-delay:.42s; }',
-
-    /* ── prefers-reduced-motion ── */
-    '@media (prefers-reduced-motion:reduce) {',
-      '.sa,.sa-left,.sa-right,.sa-scale,.sa-zoom {',
-        'opacity:1!important; transform:none!important; transition:none!important;',
-      '}',
-    '}'
-  ].join('');
-  document.head.appendChild(style);
-
+  /* Stilurile sunt in style.css */
   /* ============================================================
      REGULI per tip de element
      Fiecare regula: { selector, anim, cascade }
