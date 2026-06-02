@@ -6,6 +6,10 @@
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── ICONIȚE SVG ── */
+.ico { width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.ico--fill { fill: currentColor; stroke: none; }
+
 /* ── SKIP TO CONTENT ── */
 .skip-link {
   position: absolute; top: -100%; left: 16px;
@@ -765,7 +769,7 @@ picture { display: contents; }
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
     }
     .channel-card {
-      border-radius: 16px; padding: 24px 20px;
+      border-radius: 16px; padding: 20px 16px;
       text-align: center; text-decoration: none;
       transition: all .25s; display: flex; flex-direction: column;
       align-items: center; gap: 10px;
@@ -774,9 +778,10 @@ picture { display: contents; }
     .channel-card.phone { background: linear-gradient(135deg, #1A1A2E, #16213E); color: var(--white); }
     .channel-card.whatsapp { background: linear-gradient(135deg, #128C7E, #25D366); color: var(--white); }
     .channel-card.email { background: linear-gradient(135deg, #F5C400, #E8A000); color: var(--dark); }
-    .channel-icon { font-size: 36px; }
-    .channel-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: .8; }
-    .channel-value { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; }
+    .channel-icon { font-size: 28px; margin-bottom: 8px; line-height: 1; }
+    .channel-icon .ico { width: 28px; height: 28px; }
+    .channel-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: .8; margin-bottom: 4px; }
+    .channel-value { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; }
 
     /* SUCCESS STATE */
     .success-msg { display: none; text-align: center; padding: 32px; }

@@ -60,14 +60,7 @@
     'check': '<path d="M20 6 9 17l-5-5"/>'
   };
 
-  /* CSS pentru iconițe */
-  var style = document.createElement('style');
-  style.textContent =
-    '.ico{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;' +
-    'fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;' +
-    'stroke-linejoin:round;flex-shrink:0}' +
-    '.ico--fill{fill:currentColor;stroke:none}';
-  document.head.appendChild(style);
+  /* Stilurile .ico sunt in style.css */
 
   /* Construiește sprite-ul SVG ascuns */
   var symbols = '';
