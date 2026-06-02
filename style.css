@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    style.css — Volta Electric SRL
    CSS comun partajat de toate paginile site-ului
    ============================================================ */
@@ -319,7 +319,6 @@ picture { display: contents; }
     .nav-article p { font-size: 14px; font-weight: 700; line-height: 1.4; }
 
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .nav-articles { grid-template-columns: 1fr; } }
-    .footer-brand .footer-brand
 
 /* --- articol-2 --- */
 .article-hero { background: linear-gradient(135deg, #0f3460 0%, var(--dark) 100%); padding: 70px 24px; color: var(--white); }
@@ -366,7 +365,6 @@ picture { display: contents; }
     .btn-yellow-sm { display: block; background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 14px; padding: 12px; border-radius: 10px; text-decoration: none; }
     .btn-yellow-sm:hover { background: var(--yellow-dark); }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .compare-grid { grid-template-columns: 1fr; } .nav-articles { grid-template-columns: 1fr; } }
-    .footer-brand .footer-brand
 
 /* --- articol-3 --- */
 .article-hero { background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%); padding: 70px 24px; color: var(--white); }
@@ -424,7 +422,6 @@ picture { display: contents; }
     .btn-yellow-sm { display: block; background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 14px; padding: 12px; border-radius: 10px; text-decoration: none; }
     .btn-yellow-sm:hover { background: var(--yellow-dark); }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .calc-grid { grid-template-columns: 1fr; } .calc-result.visible { grid-template-columns: 1fr; } .nav-articles { grid-template-columns: 1fr; } }
-    .footer-brand .footer-brand
 
 /* --- blog --- */
 /* BLOG LAYOUT */
@@ -633,7 +630,6 @@ picture { display: contents; }
       .calc-card { box-shadow: none; border: 1px solid #ddd; }
     }
   
-    .footer-brand .footer-brand
 
 /* --- contact --- */
 /* CONTACT LAYOUT */
@@ -1210,7 +1206,6 @@ picture { display: contents; }
       .rights-grid { grid-template-columns: 1fr; }
     }
   
-    .footer-brand .footer-brand
 
 /* --- politica-cookies --- */
 /* CONȚINUT */
@@ -1254,8 +1249,6 @@ picture { display: contents; }
 
     footer a { color: var(--yellow); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-  
-    .footer-brand .footer-brand
 
 /* --- produse --- */
 /* LAYOUT */
@@ -1460,5 +1453,5 @@ picture { display: contents; }
     .contact-box a { color: var(--yellow); text-decoration: none; }
     .contact-box a:hover { text-decoration: underline; }
 
-    .footer-brand .footer-brand @media (max-width: 768px) { .page-layout { grid-template-columns: 1fr; } .toc-sidebar { position: static; } }
+    @media (max-width: 768px) { .page-layout { grid-template-columns: 1fr; } .toc-sidebar { position: static; } }
 
