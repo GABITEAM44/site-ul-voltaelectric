@@ -25,35 +25,75 @@
   <meta name="twitter:description" content="Distribuitor Legrand, Schneider, ABB. 20+ ani experiență. Slatina & București." />
   <meta name="twitter:image" content="https://www.voltaelectric.ro/og-image.jpg" />
 
-  <!-- Schema.org Organization -->
+  <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["LocalBusiness", "ElectricalContractor"],
+    "@id": "https://www.voltaelectric.ro/#business",
     "name": "Volta Electric SRL",
     "url": "https://www.voltaelectric.ro",
     "logo": "https://www.voltaelectric.ro/og-image.jpg",
+    "image": "https://www.voltaelectric.ro/og-image.jpg",
     "foundingDate": "2005",
-    "description": "Distribuitor de echipamente și materiale electrice — Legrand, Schneider, ABB, Gewiss, Hager",
+    "description": "Distribuitor autorizat de echipamente și materiale electrice — Legrand, Schneider, ABB, Gewiss, Hager. Peste 20 de ani de experiență. Stoc permanent, livrare rapidă în toată România.",
     "telephone": "+40724702632",
     "email": "office@voltaelectric.ro",
-    "address": [
+    "priceRange": "$$",
+    "currenciesAccepted": "RON",
+    "paymentAccepted": "Cash, Card, Transfer bancar",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Piața Gării nr. 8, Bl. 9",
+      "addressLocality": "Slatina",
+      "addressRegion": "Olt",
+      "postalCode": "230076",
+      "addressCountry": "RO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.4308,
+      "longitude": 24.3650
+    },
+    "hasMap": "https://maps.google.com/?q=Piata+Garii+nr.8+Slatina+Olt",
+    "openingHoursSpecification": [
       {
-        "@type": "PostalAddress",
-        "streetAddress": "Piața Gării nr. 8, Bl. 9",
-        "addressLocality": "Slatina",
-        "addressRegion": "Olt",
-        "postalCode": "230076",
-        "addressCountry": "RO"
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
       },
       {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Romania"
+    },
+    "branch": {
+      "@type": ["LocalBusiness", "ElectricalContractor"],
+      "@id": "https://www.voltaelectric.ro/#business-bucuresti",
+      "name": "Volta Electric SRL — București",
+      "telephone": "+40723038449",
+      "address": {
         "@type": "PostalAddress",
         "streetAddress": "Splaiul Unirii nr. 160",
         "addressLocality": "București",
         "addressRegion": "Sector 4",
+        "postalCode": "040037",
         "addressCountry": "RO"
-      }
-    ],
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.4195,
+        "longitude": 26.1085
+      },
+      "hasMap": "https://maps.google.com/?q=Splaiul+Unirii+160+Bucuresti+Sector+4"
+    },
     "sameAs": [
       "https://www.facebook.com/voltaelectric",
       "https://www.linkedin.com/company/voltaelectric"
