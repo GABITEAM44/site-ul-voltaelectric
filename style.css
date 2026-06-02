@@ -113,8 +113,13 @@ footer { background: #0d0d1f; color: #8899aa; }
 .footer-bottom a:hover { color: #F5C400; }
 
 /* ── FOOTER RESPONSIVE ── */
-@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 540px) { .footer-inner { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+@media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; } }
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 20px; padding: 36px 20px 28px; }
+  .footer-brand { text-align: center; }
+  .footer-social { justify-content: center; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+}
 
 /* ── MOBILE NAV override ── */
 @media (max-width: 768px) {
