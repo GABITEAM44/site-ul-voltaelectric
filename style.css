@@ -98,6 +98,12 @@ footer { background: #0d0d1f; color: #8899aa; }
 .footer-social { display: flex; gap: 10px; margin-top: 16px; }
 .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,.06); border-radius: 8px; font-size: 18px; text-decoration: none; transition: background .2s, color .2s; color: #8899aa; }
 .footer-social a:hover { background: rgba(245,196,0,.15); }
+.footer-social a.fs-wa { color: #25D366; }
+.footer-social a.fs-wa:hover { background: rgba(37,211,102,.15); }
+.footer-social a.fs-mail { color: #F5C400; }
+.footer-social a.fs-mail:hover { background: rgba(245,196,0,.15); }
+.footer-social a.fs-tel { color: #60A5FA; }
+.footer-social a.fs-tel:hover { background: rgba(96,165,250,.15); }
 .footer-col h5 { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5C400; margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 13px; color: #667788; text-decoration: none; padding: 4px 0; transition: color .2s; }
 .footer-col a:hover { color: #F5C400; }
