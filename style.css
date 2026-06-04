@@ -87,18 +87,18 @@ footer { background: #0d0d1f; color: #8899aa; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
 .footer-brand .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
 .footer-brand .logo span { color: #F5C400; }
-.footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; color: #667788; max-width: 240px; }
+.footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; color: #8899aa; max-width: 240px; }
 .footer-social { display: flex; gap: 10px; margin-top: 16px; }
 .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,.06); border-radius: 8px; font-size: 18px; text-decoration: none; transition: background .2s; }
 .footer-social a:hover { background: rgba(245,196,0,.15); }
-.footer-col h5 { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5C400; margin-bottom: 14px; }
-.footer-col a { display: block; font-size: 13px; color: #667788; text-decoration: none; padding: 4px 0; transition: color .2s; }
+.footer-col h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5C400; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13px; color: #8899aa; text-decoration: none; padding: 4px 0; transition: color .2s; }
 .footer-col a:hover { color: #F5C400; }
-.footer-contact { font-size: 13px; color: #667788; padding: 3px 0; line-height: 1.6; }
-.footer-contact a { color: #667788; text-decoration: none; }
+.footer-contact { font-size: 13px; color: #8899aa; padding: 3px 0; line-height: 1.6; }
+.footer-contact a { color: #8899aa; text-decoration: none; }
 .footer-contact a:hover { color: #F5C400; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #445566; font-family: 'Inter', sans-serif; }
-.footer-bottom a { color: #667788; text-decoration: none; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #7788aa; font-family: 'Inter', sans-serif; }
+.footer-bottom a { color: #8899aa; text-decoration: none; }
 .footer-bottom a:hover { color: #F5C400; }
 
 /* ── FOOTER RESPONSIVE ── */
@@ -108,6 +108,10 @@ footer { background: #0d0d1f; color: #8899aa; }
 /* ── MOBILE NAV override ── */
 @media (max-width: 768px) {
   nav a:not(.btn-header) { display: none; }
+  /* Rezervă spațiu pentru call-bar fix (previne CLS) */
+  body { padding-bottom: 76px; }
+  #btt-btn { bottom: 88px !important; }
+  .whatsapp-btn { bottom: 88px !important; }
 }
 
 /* ── HERO SOCIAL PROOF ── */

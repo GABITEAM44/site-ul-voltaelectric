@@ -22,11 +22,6 @@
     /* ── Vizibil pe mobile ── */
     '@media (max-width: 768px) {',
       '#call-bar { display: block; }',
-      /* Ridica back-to-top si WhatsApp deasupra barei */
-      '#btt-btn { bottom: 88px !important; }',
-      '.whatsapp-btn { bottom: 88px !important; }',
-      /* Adauga spatiu la body ca bara sa nu acopere continut */
-      'body { padding-bottom: 76px; }',
     '}',
 
     /* ── Butonul propriu-zis ── */
