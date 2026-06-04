@@ -1,16 +1,16 @@
-﻿/* ============================================================
-   style.css — Volta Electric SRL
+/* ============================================================
+   style.css � Volta Electric SRL
    CSS comun partajat de toate paginile site-ului
    ============================================================ */
 
-/* ── RESET ── */
+/* �� RESET �� */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── ICONIȚE SVG ── */
+/* �� ICONI?E SVG �� */
 .ico { width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 .ico--fill { fill: currentColor; stroke: none; }
 
-/* ── SKIP TO CONTENT ── */
+/* �� SKIP TO CONTENT �� */
 .skip-link {
   position: absolute; top: -100%; left: 16px;
   background: var(--yellow); color: var(--dark);
@@ -21,7 +21,7 @@
 }
 .skip-link:focus { top: 0; }
 
-/* ── VARIABILE ── */
+/* �� VARIABILE �� */
 :root {
   --yellow: #F5C400;
   --yellow-dark: #E8A000;
@@ -36,7 +36,7 @@
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; max-width: 100vw; }
 
-/* ── HEADER ── */
+/* �� HEADER �� */
 header { background: var(--dark); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,.4); }
 .header-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 70px; }
 .logo { display: flex; align-items: center; text-decoration: none; line-height: 1; font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: var(--white); }
@@ -50,33 +50,33 @@ nav a:hover, nav a.active { color: var(--yellow); background: rgba(245,196,0,.08
 .btn-header { background: var(--yellow); color: var(--dark) !important; font-weight: 700 !important; border-radius: 8px !important; padding: 9px 20px !important; }
 .btn-header:hover { background: var(--yellow-dark) !important; }
 
-/* ── PAGE HERO (interior pages) ── */
+/* �� PAGE HERO (interior pages) �� */
 .page-hero { background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%); color: var(--white); padding: 60px 24px; }
 .page-hero-inner { max-width: 860px; margin: 0 auto; }
 .page-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-bottom: 12px; }
 .page-hero h1 em { color: var(--yellow); font-style: normal; }
 .page-hero p { font-size: 16px; color: #b0b8cc; max-width: 600px; line-height: 1.7; }
 
-/* ── BREADCRUMB ── */
+/* �� BREADCRUMB �� */
 .breadcrumb { font-size: 13px; color: #8899aa; margin-bottom: 16px; }
 .breadcrumb a { color: #8899aa; text-decoration: none; }
 .breadcrumb a:hover { color: var(--yellow); }
 .breadcrumb span { margin: 0 8px; }
 
-/* ── BADGE ── */
+/* �� BADGE �� */
 .update-badge { display: inline-block; background: rgba(245,196,0,.15); border: 1px solid rgba(245,196,0,.3); color: var(--yellow); font-size: 13px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
 
-/* ── BUTOANE COMUNE ── */
+/* �� BUTOANE COMUNE �� */
 .btn-yellow { background: var(--yellow); color: var(--dark); font-weight: 700; font-size: 15px; padding: 13px 28px; border-radius: 10px; text-decoration: none; transition: all .2s; border: 2px solid var(--yellow); display: inline-block; }
 .btn-yellow:hover { background: var(--yellow-dark); border-color: var(--yellow-dark); transform: translateY(-2px); }
 
-/* ── INFO BOX & WARN BOX ── */
+/* �� INFO BOX & WARN BOX �� */
 .info-box { background: #FFFBEA; border-left: 4px solid var(--yellow); border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 24px 0; }
 .info-box p { margin: 0; font-size: 15px; }
 .warn-box { background: #FFF3E0; border-left: 4px solid #FF8F00; border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 24px 0; }
 .warn-box p { margin: 0; font-size: 15px; }
 
-/* ── WHATSAPP FLOAT ── */
+/* �� WHATSAPP FLOAT �� */
 .whatsapp-btn {
   position: fixed; bottom: 24px; right: 24px; z-index: 800;
   width: 52px; height: 52px; border-radius: 50%;
@@ -89,12 +89,12 @@ nav a:hover, nav a.active { color: var(--yellow); background: rgba(245,196,0,.08
 .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.5); }
 .whatsapp-btn .ico { width: 26px; height: 26px; color: var(--white); }
 
-/* ── FOOTER ── */
+/* �� FOOTER �� */
 footer { background: #0d0d1f; color: #8899aa; }
 .footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1); }
 .footer-brand .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
 .footer-brand .logo span { color: #F5C400; }
-.footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; color: #667788; max-width: 240px; }
+.footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; color: #8899aa; max-width: 240px; }
 .footer-social { display: flex; gap: 10px; margin-top: 16px; }
 .footer-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,.06); border-radius: 8px; font-size: 18px; text-decoration: none; transition: background .2s, color .2s; color: #8899aa; }
 .footer-social a:hover { background: rgba(245,196,0,.15); }
@@ -105,10 +105,10 @@ footer { background: #0d0d1f; color: #8899aa; }
 .footer-social a.fs-tel { color: #60A5FA; }
 .footer-social a.fs-tel:hover { background: rgba(96,165,250,.15); }
 .footer-col h5 { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #F5C400; margin-bottom: 14px; }
-.footer-col a { display: block; font-size: 13px; color: #667788; text-decoration: none; padding: 4px 0; transition: color .2s; }
+.footer-col a { display: block; font-size: 13px; color: #8899aa; text-decoration: none; padding: 4px 0; transition: color .2s; }
 .footer-col a:hover { color: #F5C400; }
-.footer-contact { font-size: 13px; color: #667788; padding: 3px 0; line-height: 1.6; display: flex; align-items: center; gap: 6px; }
-.footer-contact a { color: #667788; text-decoration: none; }
+.footer-contact { font-size: 13px; color: #8899aa; padding: 3px 0; line-height: 1.6; display: flex; align-items: center; gap: 6px; }
+.footer-contact a { color: #8899aa; text-decoration: none; }
 .footer-contact a:hover { color: #F5C400; }
 .footer-location { font-size: 11px; letter-spacing: 1px; color: var(--yellow); }
 .footer-location-gap { margin-top: 10px; }
@@ -118,11 +118,11 @@ footer { background: #0d0d1f; color: #8899aa; }
 #ctaConfirm { color: var(--dark); font-weight: 600; margin-top: 16px; }
 .btn-offer-inline { display: block; background: var(--yellow); color: var(--dark); text-align: center; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s; }
 .btn-offer-inline:hover { background: var(--yellow-dark); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #445566; font-family: 'Inter', sans-serif; }
-.footer-bottom a { color: #667788; text-decoration: none; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #7788aa; font-family: 'Inter', sans-serif; }
+.footer-bottom a { color: #8899aa; text-decoration: none; }
 .footer-bottom a:hover { color: #F5C400; }
 
-/* ── FOOTER RESPONSIVE ── */
+/* �� FOOTER RESPONSIVE �� */
 @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; } }
 @media (max-width: 640px) {
   .footer-inner { grid-template-columns: 1fr; gap: 20px; padding: 36px 20px 28px; }
@@ -131,12 +131,12 @@ footer { background: #0d0d1f; color: #8899aa; }
   .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
 }
 
-/* ── MOBILE NAV override ── */
+/* �� MOBILE NAV override �� */
 @media (max-width: 768px) {
   nav a:not(.btn-header) { display: none; }
 }
 
-/* ── HERO SOCIAL PROOF ── */
+/* �� HERO SOCIAL PROOF �� */
 .hero-proof {
   margin-top: 32px;
   padding-top: 24px;
@@ -159,15 +159,15 @@ footer { background: #0d0d1f; color: #8899aa; }
   .hero-proof { gap: 12px; }
 }
 
-/* ── PICTURE wrapper ── */
+/* �� PICTURE wrapper �� */
 picture { display: contents; }
 
-/* ══════════════════════════════════════════════════════════
-   ETAPA E — TIPOGRAFIE IERARHIE MOBIL
-   Scară: h1 → h2 → h3 → body cu raport vizual clar pe orice ecran
-   ══════════════════════════════════════════════════════════ */
+/* ==========================================================
+   ETAPA E � TIPOGRAFIE IERARHIE MOBIL
+   Scar�: h1 � h2 � h3 � body cu raport vizual clar pe orice ecran
+   ========================================================== */
 
-/* ── Tabletă (≤768px) ── */
+/* �� Tablet� (?768px) �� */
 @media (max-width: 768px) {
   /* Page hero */
   .page-hero { padding: 44px 20px; }
@@ -187,7 +187,7 @@ picture { display: contents; }
   h3 { font-size: clamp(17px, 4.5vw, 22px); }
   h4 { font-size: clamp(15px, 4vw, 18px); }
 
-  /* Butoane — tap target minim 44px */
+  /* Butoane � tap target minim 44px */
   .btn-yellow { font-size: 15px; padding: 13px 24px; min-height: 44px; }
   .btn-header { min-height: 44px !important; }
 
@@ -195,7 +195,7 @@ picture { display: contents; }
   .logo { font-size: 22px; }
 }
 
-/* ── Telefon mic (≤480px) ── */
+/* �� Telefon mic (?480px) �� */
 @media (max-width: 480px) {
   .page-hero { padding: 36px 16px; }
   .page-hero h1 { font-size: clamp(24px, 8vw, 32px); }
@@ -213,12 +213,12 @@ picture { display: contents; }
   .btn-yellow { font-size: 14px; padding: 12px 20px; }
 }
 
-/* ══════════════════════════════════════════════════════════
-   JS COMPONENTS — stiluri mutate din injectare JS în CSS
+/* ==========================================================
+   JS COMPONENTS � stiluri mutate din injectare JS �n CSS
    (back-to-top, call-btn, mobile-nav, cookie-banner, scroll-animations)
-   ══════════════════════════════════════════════════════════ */
+   ========================================================== */
 
-/* ── Scroll animations ── */
+/* �� Scroll animations �� */
 .sa { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; will-change:opacity,transform; }
 .sa.sa-visible { opacity:1; transform:translateY(0); }
 .sa-left  { transform:translateX(-44px) translateY(0); }
@@ -233,17 +233,17 @@ picture { display: contents; }
 .sa-d4 { transition-delay:.28s; } .sa-d5 { transition-delay:.35s; } .sa-d6 { transition-delay:.42s; }
 @media (prefers-reduced-motion:reduce) { .sa,.sa-left,.sa-right,.sa-scale,.sa-zoom { opacity:1!important; transform:none!important; transition:none!important; } }
 
-/* ── Back to top ── */
+/* �� Back to top �� */
 #btt-btn { position:fixed; bottom:90px; right:24px; z-index:900; width:44px; height:44px; border-radius:50%; background:var(--dark); border:2px solid var(--yellow); color:var(--yellow); font-size:20px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,.25); opacity:0; transform:translateY(12px); pointer-events:none; transition:opacity .3s ease, transform .3s ease, background .2s; }
 #btt-btn.btt-visible { opacity:1; transform:translateY(0); pointer-events:all; }
 #btt-btn:hover { background:var(--yellow); color:var(--dark); }
 @media (max-width:600px) { #btt-btn { bottom:84px; right:16px; width:40px; height:40px; font-size:18px; } }
 
-/* ── Call bar (mobile) ── */
+/* �� Call bar (mobile) �� */
 #call-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:850; padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:var(--dark); border-top:2px solid var(--yellow); box-shadow:0 -4px 20px rgba(0,0,0,.35); }
 @media (max-width:768px) {
   #call-bar { display:block; }
-  /* call-bar ≈ 68px; whatsapp deasupra lui; btt deasupra whatsapp */
+  /* call-bar ? 68px; whatsapp deasupra lui; btt deasupra whatsapp */
   .whatsapp-btn { bottom:80px !important; right:16px !important; width:46px !important; height:46px !important; }
   #btt-btn { bottom:136px !important; right:16px !important; width:40px !important; height:40px !important; }
   body { padding-bottom:76px; }
@@ -258,7 +258,7 @@ picture { display: contents; }
 @keyframes callPulse { 0%,100%{box-shadow:0 4px 16px rgba(30,175,43,.4)} 50%{box-shadow:0 4px 28px rgba(30,175,43,.7)} }
 @media (prefers-reduced-motion:reduce) { #call-btn .call-ico { animation:none; } #call-btn { animation:none; } }
 
-/* ── Mobile nav ── */
+/* �� Mobile nav �� */
 .nav-hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:40px; height:40px; background:transparent; border:none; cursor:pointer; padding:4px; border-radius:8px; transition:background .2s; flex-shrink:0; }
 .nav-hamburger:hover { background:rgba(245,196,0,.12); }
 .nav-hamburger .bar { display:block; width:24px; height:2.5px; background:#fff; border-radius:2px; transition:transform .3s ease, opacity .3s ease, width .3s ease; transform-origin:center; }
@@ -276,7 +276,7 @@ picture { display: contents; }
   header nav.nav-open a { display:block !important; }
 }
 
-/* ── Cookie banner ── */
+/* �� Cookie banner �� */
 #volta-cookie-banner { position:fixed; bottom:0; left:0; right:0; z-index:9999; background:var(--dark); color:#fff; padding:20px 24px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; box-shadow:0 -4px 24px rgba(0,0,0,.35); transform:translateY(0); opacity:1; transition:transform .4s ease, opacity .4s ease; font-family:'Inter',sans-serif; font-size:14px; line-height:1.5; }
 #volta-cookie-banner .vck-text { flex:1; min-width:220px; }
 #volta-cookie-banner .vck-text strong { color:var(--yellow); font-size:15px; display:block; margin-bottom:4px; }
@@ -290,9 +290,9 @@ picture { display: contents; }
 #volta-cookie-banner .vck-icon { font-size:28px; flex-shrink:0; }
 @media(max-width:600px) { #volta-cookie-banner { flex-direction:column; align-items:flex-start; } #volta-cookie-banner .vck-actions { width:100%; } #volta-cookie-banner .vck-btn { flex:1; text-align:center; } }
 
-/* ══════════════════════════════════════════════════════════
-   PAGE-SPECIFIC STYLES — mutate din blocuri inline HTML
-   ══════════════════════════════════════════════════════════ */
+/* ==========================================================
+   PAGE-SPECIFIC STYLES � mutate din blocuri inline HTML
+   ========================================================== */
 
 /* --- articol-1 --- */
 .article-hero { background: linear-gradient(135deg, var(--dark) 0%, #0f3460 100%); padding: 70px 24px; color: var(--white); }
@@ -686,7 +686,7 @@ picture { display: contents; }
     .program-row .hours { font-weight: 600; color: var(--text); }
     .program-row .closed { color: #e53935; font-weight: 600; }
 
-    /* HARTĂ */
+    /* HART� */
     .map-container {
       border-radius: 16px; overflow: hidden;
       border: 1.5px solid #E8E8E8; margin-top: 16px;
@@ -1011,7 +1011,7 @@ picture { display: contents; }
     .hero-card h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
     .hero-card p { font-size: 13px; color: #c0cad8; }
 
-    /* ── CATEGORII ── */
+    /* �� CATEGORII �� */
     .section { padding: 80px 24px; }
     .section-inner { max-width: 1200px; margin: 0 auto; }
     .section-label {
@@ -1053,7 +1053,7 @@ picture { display: contents; }
     .cat-name { font-weight: 600; font-size: 14px; }
     .cat-count { font-size: 12px; color: var(--gray-mid); }
 
-    /* ── BRANDURI ── */
+    /* �� BRANDURI �� */
     .brands { background: var(--gray-light); padding: 60px 24px; }
     .brands-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
     .brands h3 {
@@ -1079,7 +1079,7 @@ picture { display: contents; }
       box-shadow: 0 4px 16px rgba(245,196,0,.25);
     }
 
-    /* ── DE CE NOI ── */
+    /* �� DE CE NOI �� */
     .why { padding: 80px 24px; background: var(--white); }
     .why-inner { max-width: 1200px; margin: 0 auto; }
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
@@ -1099,7 +1099,7 @@ picture { display: contents; }
     .why-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
     .why-card p { font-size: 14px; color: var(--gray-mid); line-height: 1.7; }
 
-    /* ── CTA OFERTĂ ── */
+    /* �� CTA OFERT� �� */
     .cta {
       background: var(--yellow);
       padding: 80px 24px;
@@ -1135,7 +1135,7 @@ picture { display: contents; }
     }
     .btn-dark:hover { background: #0f3460; transform: translateY(-2px); }
 
-    /* ── DESPRE NOI ── */
+    /* �� DESPRE NOI �� */
     .about { padding: 80px 24px; background: var(--gray-light); }
     .about-inner {
       max-width: 1200px; margin: 0 auto;
@@ -1171,7 +1171,7 @@ picture { display: contents; }
     .mission-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
     .mission-card p { font-size: 15px; color: var(--gray-mid); line-height: 1.7; }
 
-    /* ── RESPONSIVE ── */
+    /* �� RESPONSIVE �� */
     @media (max-width: 768px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
@@ -1196,7 +1196,7 @@ picture { display: contents; }
     .toc-sidebar a:hover { color: var(--yellow-dark); }
     .toc-sidebar span { font-size: 11px; font-weight: 700; color: var(--yellow-dark); margin-right: 4px; }
 
-    /* CONȚINUT */
+    /* CON?INUT */
     .content-body {}
     .section-block { margin-bottom: 52px; scroll-margin-top: 90px; }
     .section-block h2 {
@@ -1248,7 +1248,7 @@ picture { display: contents; }
   
 
 /* --- politica-cookies --- */
-/* CONȚINUT */
+/* CON?INUT */
     .content-wrap { max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; }
 
     .section-block { margin-bottom: 48px; }
@@ -1477,7 +1477,7 @@ picture { display: contents; }
     .toc-sidebar a:hover { color: var(--yellow-dark); }
     .toc-sidebar span { font-size: 11px; font-weight: 700; color: var(--yellow-dark); margin-right: 4px; }
 
-    /* CONȚINUT */
+    /* CON?INUT */
     .section-block { margin-bottom: 52px; scroll-margin-top: 90px; }
     .section-block h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 3px solid var(--yellow); }
     .section-block h3 { font-size: 17px; font-weight: 700; color: var(--dark); margin: 22px 0 10px; }
