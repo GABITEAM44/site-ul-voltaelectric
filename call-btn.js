@@ -7,8 +7,10 @@
   function init() {
     var bar = document.createElement('div');
     bar.id = 'call-bar';
+    bar.setAttribute('role', 'complementary');
+    bar.setAttribute('aria-label', 'Bara apel rapid');
     bar.innerHTML = [
-      '<a id="call-btn" href="tel:+40724702632" aria-label="Suna la Volta Electric: 0724 702 632">',
+      '<a id="call-btn" href="tel:+40724702632" aria-label="SUNĂ ACUM 0724 702 632">',
         '<svg class="call-ico" fill="none" stroke="currentColor" stroke-width="2.2"',
           ' stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"',
           ' aria-hidden="true">',
