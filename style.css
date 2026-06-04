@@ -235,7 +235,13 @@ picture { display: contents; }
 
 /* ── Call bar (mobile) ── */
 #call-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:850; padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:var(--dark); border-top:2px solid var(--yellow); box-shadow:0 -4px 20px rgba(0,0,0,.35); }
-@media (max-width:768px) { #call-bar { display:block; } #btt-btn { bottom:88px !important; } .whatsapp-btn { bottom:88px !important; } body { padding-bottom:76px; } }
+@media (max-width:768px) {
+  #call-bar { display:block; }
+  /* call-bar ≈ 68px; whatsapp deasupra lui; btt deasupra whatsapp */
+  .whatsapp-btn { bottom:80px !important; right:16px !important; width:46px !important; height:46px !important; }
+  #btt-btn { bottom:136px !important; right:16px !important; width:40px !important; height:40px !important; }
+  body { padding-bottom:76px; }
+}
 #call-btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:13px 20px; background:linear-gradient(135deg,#1eaf2b 0%,#16873a 100%); color:#fff; border:none; border-radius:12px; text-decoration:none; font-family:'Inter',sans-serif; font-size:16px; font-weight:700; letter-spacing:.3px; cursor:pointer; transition:filter .2s; box-shadow:0 4px 16px rgba(30,175,43,.4); animation:callPulse 2.4s ease-in-out infinite; }
 #call-btn:hover, #call-btn:active { filter:brightness(1.1); }
 #call-btn .call-ico { width:22px; height:22px; flex-shrink:0; animation:callRing 1.6s ease-in-out infinite; }
@@ -766,7 +772,7 @@ picture { display: contents; }
     /* CANALE RAPIDE */
     .quick-channels {
       max-width: 1200px; margin: 0 auto 60px; padding: 0 24px;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
     }
     .channel-card {
       border-radius: 16px; padding: 20px 16px;
